@@ -34,3 +34,36 @@ document.querySelectorAll('[data-latest]').forEach(async (card) => {
     // Keep the fallback already in the page.
   }
 });
+
+// "Now" ticker: pause/play button and a steady, calm scroll speed.
+document.querySelectorAll('.ticker').forEach((ticker) => {
+  const button = ticker.querySelector('.ticker-toggle');
+  const list = ticker.querySelector('.ticker-items');
+  if (!button || !list) return;
+  const icon = button.querySelector('.ticker-icon');
+  const label = button.querySelector('.ticker-label');
+
+  button.addEventListener('click', () => {
+    const paused = !ticker.classList.contains('is-paused');
+    ticker.classList.toggle('is-paused', paused);
+    // After Play, hover/focus shouldn't re-pause it until they leave the ticker.
+    ticker.classList.toggle('is-resumed', !paused);
+    button.setAttribute('aria-pressed', String(paused));
+    if (icon) icon.textContent = paused ? '▶︎' : '❚❚'; // ▶ (text style) / ❚❚
+    if (label) label.textContent = paused ? 'Play' : 'Pause';
+  });
+  ticker.addEventListener('pointerleave', (e) => {
+    if (e.pointerType === 'mouse') ticker.classList.remove('is-resumed');
+  });
+  ticker.addEventListener('focusout', (e) => {
+    if (!ticker.contains(e.relatedTarget)) ticker.classList.remove('is-resumed');
+  });
+
+  // About 35px per second, however much text the ticker holds.
+  const setSpeed = () => {
+    const seconds = Math.max(list.offsetWidth / 35, 10);
+    ticker.style.setProperty('--ticker-duration', seconds + 's');
+  };
+  setSpeed();
+  if ('ResizeObserver' in window) new ResizeObserver(setSpeed).observe(list);
+});

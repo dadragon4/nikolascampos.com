@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nikolas Campos</title>
   <meta name="description" content="Nikolas Campos — writing, film, and music composition.">
-  <link rel="stylesheet" href="css/styles.css?v=2"/>
+  <link rel="stylesheet" href="css/styles.css?v=6"/>
   <script src="js/site.js" defer></script>
 </head>
 <body>
@@ -13,7 +13,7 @@
 
     <header class="site">
       <h1><a href="index.html">Nikolas Campos</a></h1>
-      <p class="tagline">Art and literature–things of that nature.</p>
+      <p class="tagline">Art and literature—things of that nature.</p>
       <nav class="site">
         <a href="index.html" aria-current="page">Home</a>
         <details class="menu">
@@ -30,7 +30,21 @@
       </nav>
     </header>
 
-    <marquee>Hello. I'm currently reading <i>Plato's Republic</i>. Very cool.</marquee>
+    <p class="welcome">Welcome, I'm Niko. I write, make films, and compose music, and this is where it all lives.</p>
+
+    <div class="ticker">
+      <div class="ticker-viewport">
+        <div class="ticker-track">
+          <ul class="ticker-items">
+            <li>Now reading: <i>Plato's Republic</i></li>
+          </ul>
+          <ul class="ticker-items" aria-hidden="true">
+            <li>Now reading: <i>Plato's Republic</i></li>
+          </ul>
+        </div>
+      </div>
+      <button type="button" class="ticker-toggle" aria-pressed="false"><span class="ticker-icon" aria-hidden="true">❚❚</span> <span class="ticker-label">Pause</span></button>
+    </div>
 
     <hr class="rule">
 
