@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nikolas Campos</title>
   <meta name="description" content="Nikolas Campos — writing, film, and music composition.">
-  <link rel="stylesheet" href="css/styles.css?v=6"/>
+  <link rel="stylesheet" href="css/styles.css?v=7">
   <script src="js/site.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="wrap">
 
     <header class="site">
@@ -30,69 +31,71 @@
       </nav>
     </header>
 
-    <p class="welcome">Welcome, I'm Niko. I write, make films, and compose music, and this is where it all lives.</p>
+    <main id="main">
+      <p class="welcome">Welcome, I'm Niko. I write, make films, and compose music, and this is where it all lives.</p>
 
-    <div class="ticker">
-      <div class="ticker-viewport">
-        <div class="ticker-track">
-          <ul class="ticker-items">
-            <li>Now reading: <i>Plato's Republic</i></li>
-          </ul>
-          <ul class="ticker-items" aria-hidden="true">
-            <li>Now reading: <i>Plato's Republic</i></li>
-          </ul>
+      <div class="ticker">
+        <div class="ticker-viewport">
+          <div class="ticker-track">
+            <ul class="ticker-items">
+              <li>Now reading: <cite>Plato's Republic</cite></li>
+            </ul>
+            <ul class="ticker-items" aria-hidden="true">
+              <li>Now reading: <cite>Plato's Republic</cite></li>
+            </ul>
+          </div>
         </div>
+        <button type="button" class="ticker-toggle"><span class="ticker-icon" aria-hidden="true">❚❚</span> <span class="ticker-label">Pause</span></button>
       </div>
-      <button type="button" class="ticker-toggle" aria-pressed="false"><span class="ticker-icon" aria-hidden="true">❚❚</span> <span class="ticker-label">Pause</span></button>
-    </div>
 
-    <hr class="rule">
+      <hr class="rule">
 
-    <section id="latest">
-      <h2 class="section-label">Latest</h2>
-      <div class="latest">
-        <article class="latest-card" data-latest="music.html">
-          <h3 class="latest-kind">Music</h3>
-          <div class="latest-item">
-            <time datetime="2026-06-19">June 19 2026</time>
-            <div class="entry">
-              <iframe data-testid="embed-iframe" src="https://open.spotify.com/embed/album/3TYifD6kMUnAvM0sssDX38?utm_source=generator&theme=0&si=768b0f9900d244f1" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-              <p class="excerpt">Experimental tech/ambient.</p>
+      <section id="latest">
+        <h2 class="section-label">Latest</h2>
+        <div class="latest">
+          <article class="latest-card" data-latest="music.html">
+            <h3 class="latest-kind">Music</h3>
+            <div class="latest-item">
+              <time datetime="2026-06-19">June 19 2026</time>
+              <div class="entry">
+                <iframe title="Listen to all i really do is make noise on Spotify" src="https://open.spotify.com/embed/album/3TYifD6kMUnAvM0sssDX38?utm_source=generator&theme=0&si=768b0f9900d244f1" height="152" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <p class="excerpt">Experimental tech/ambient.</p>
+              </div>
             </div>
-          </div>
-          <a class="latest-more" href="music.html">All music →</a>
-        </article>
-        <article class="latest-card" data-latest="writing.html">
-          <h3 class="latest-kind">Writing</h3>
-          <div class="latest-item">
-            <time datetime="2026-08-01">Aug. 1 2026</time>
-            <div class="entry">
-              <a href="writing/i-want-to-write.html">i want to write</a>
-              <span class="excerpt">A piece on why I want to write and a new realization.</span>
+            <a class="latest-more" href="music.html">All music <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="latest-card" data-latest="writing.html">
+            <h3 class="latest-kind">Writing</h3>
+            <div class="latest-item">
+              <time datetime="2026-08-01">Aug. 1 2026</time>
+              <div class="entry">
+                <a href="writing/i-want-to-write.html">i want to write</a>
+                <span class="excerpt">A piece on why I want to write and a new realization.</span>
+              </div>
             </div>
-          </div>
-          <a class="latest-more" href="writing.html">All writing →</a>
-        </article>
-        <article class="latest-card" data-latest="film.html">
-          <h3 class="latest-kind">Film</h3>
-          <div class="latest-item">
-            <time datetime="2024-11-29">Nov. 29 2024</time>
-            <div class="entry">
-              <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/-JiEg5L-cI4?si=HmBOWIwL8U5W2t7m" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-              <p class="excerpt">A short film on waiting.</p>
+            <a class="latest-more" href="writing.html">All writing <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="latest-card" data-latest="film.html">
+            <h3 class="latest-kind">Film</h3>
+            <div class="latest-item">
+              <time datetime="2024-11-29">Nov. 29 2024</time>
+              <div class="entry">
+                <iframe title="Watch Waiting: A Short Film on YouTube" width="560" height="315" src="https://www.youtube-nocookie.com/embed/-JiEg5L-cI4?si=HmBOWIwL8U5W2t7m" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                <p class="excerpt">A short film on waiting.</p>
+              </div>
             </div>
-          </div>
-          <a class="latest-more" href="film.html">All films →</a>
-        </article>
-      </div>
-    </section>
+            <a class="latest-more" href="film.html">All films <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </section>
 
-    <section id="about">
-      <h2 class="section-label">About</h2>
-      <p class="intro">
-        This site is a place for my art to call home. It is host to my writing, film work, and music composition.
-      </p>
-    </section>
+      <section id="about">
+        <h2 class="section-label">About</h2>
+        <p class="intro">
+          This site is a place for my art to call home. It is host to my writing, film work, and music composition.
+        </p>
+      </section>
+    </main>
 
     <footer class="site">
       © 2026 Nikolas Campos. Built in HTML.

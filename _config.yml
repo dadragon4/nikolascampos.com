@@ -1,0 +1,4 @@
+# GitHub Pages settings. The site is plain HTML; this only keeps
+# project notes out of the published site.
+exclude:
+  - CLAUDE.md

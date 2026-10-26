@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Film — Nikolas Campos</title>
   <meta name="description" content="Short films by Nikolas Campos.">
-  <link rel="stylesheet" href="css/styles.css?v=6"/>
+  <link rel="stylesheet" href="css/styles.css?v=7">
   <script src="js/site.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="wrap">
 
     <header class="site">
@@ -30,41 +31,43 @@
       </nav>
     </header>
 
-    <div class="ticker">
-      <div class="ticker-viewport">
-        <div class="ticker-track">
-          <ul class="ticker-items">
-            <li>Subscribe on youtube and leave a comment!</li>
-          </ul>
-          <ul class="ticker-items" aria-hidden="true">
-            <li>Subscribe on youtube and leave a comment!</li>
-          </ul>
+    <main id="main">
+      <div class="ticker">
+        <div class="ticker-viewport">
+          <div class="ticker-track">
+            <ul class="ticker-items">
+              <li>Subscribe on youtube and leave a comment!</li>
+            </ul>
+            <ul class="ticker-items" aria-hidden="true">
+              <li>Subscribe on youtube and leave a comment!</li>
+            </ul>
+          </div>
         </div>
+        <button type="button" class="ticker-toggle"><span class="ticker-icon" aria-hidden="true">❚❚</span> <span class="ticker-label">Pause</span></button>
       </div>
-      <button type="button" class="ticker-toggle" aria-pressed="false"><span class="ticker-icon" aria-hidden="true">❚❚</span> <span class="ticker-label">Pause</span></button>
-    </div>
 
-    <hr class="rule">
+      <hr class="rule">
 
-    <section id="film">
-      <h2 class="section-label">Film</h2>
-      <ul class="index">
-        <li>
-          <time datetime="2024-11-29">Nov. 29 2024</time>
-          <div class="entry">
-            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/-JiEg5L-cI4?si=HmBOWIwL8U5W2t7m" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <p class="excerpt">A short film on waiting.</p>
-          </div>
-        </li>
-        <li>
-          <time datetime="2024-11-23">Nov. 23 2024</time>
-          <div class="entry">
-            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/OlogFQG_yf0?si=P-Kv7MDXcxso1L12" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <p class="excerpt">UCF Media Production and Management Capstone project.</p>
-          </div>
-        </li>
-      </ul>
-    </section>
+      <section id="film">
+        <h2 class="section-label">Film</h2>
+        <ul class="index">
+          <li>
+            <time datetime="2024-11-29">Nov. 29 2024</time>
+            <div class="entry">
+              <iframe title="Watch Waiting: A Short Film on YouTube" width="560" height="315" src="https://www.youtube-nocookie.com/embed/-JiEg5L-cI4?si=HmBOWIwL8U5W2t7m" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+              <p class="excerpt">A short film on waiting.</p>
+            </div>
+          </li>
+          <li>
+            <time datetime="2024-11-23">Nov. 23 2024</time>
+            <div class="entry">
+              <iframe title="Watch Walk of Faith: A Short Documentary on YouTube" width="560" height="315" src="https://www.youtube-nocookie.com/embed/OlogFQG_yf0?si=P-Kv7MDXcxso1L12" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+              <p class="excerpt">UCF Media Production and Management Capstone project.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
 
     <footer class="site">
       © 2026 Nikolas Campos. Built in HTML.

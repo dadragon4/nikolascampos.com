@@ -25,10 +25,27 @@ a {
     text-underline-offset: 3px;
 }
 a:hover { text-decoration-thickness: 2px; }
-a:focus-visible, button:focus-visible {
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 3px;
 }
+
+/* Skip link: hidden until a keyboard user tabs to it */
+.skip-link {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 20;
+    padding: 0.5rem 0.9rem;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    color: var(--ink);
+    font-size: 0.9rem;
+    transform: translateY(-200%);
+}
+.skip-link:focus { transform: none; }
 
 .wrap {
     max-width: 640px;
@@ -108,10 +125,6 @@ p.welcome {
     cursor: pointer;
 }
 .ticker-toggle:hover { color: var(--ink); }
-.ticker-toggle:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-}
 @media (prefers-reduced-motion: reduce) {
     .ticker-items {
         flex-wrap: wrap;
@@ -177,10 +190,6 @@ nav.site summary::after {
     color: var(--ink-soft);
 }
 nav.site details[open] summary::after { content: "▴"; }
-nav.site summary:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 3px;
-}
 nav.site .menu-list {
     position: absolute;
     top: calc(100% + 0.6rem);
@@ -244,13 +253,16 @@ ul.index .excerpt {
     font-size: 0.95rem;
 }
 
-ul.index iframe {
+/* Embeds (list pages and home page cards): full width, no border.
+   YouTube keeps 16:9; Spotify keeps its fixed height attribute. */
+ul.index iframe,
+.latest-item iframe {
     display: block;
-    max-width: 100%;
+    width: 100%;
     border: 0;
 }
-ul.index iframe[src*="youtube"] {
-    width: 100%;
+ul.index iframe[src*="youtube"],
+.latest-item iframe[src*="youtube"] {
     height: auto;
     aspect-ratio: 16 / 9;
 }
@@ -286,13 +298,6 @@ ul.index iframe[src*="spotify"],
     color: var(--ink);
 }
 .latest-item .entry > a:hover { color: var(--accent); }
-.latest-item iframe {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    border: 0;
-}
-.latest-item iframe[src*="youtube"] { height: auto; aspect-ratio: 16 / 9; }
 .latest-item .excerpt {
     display: block;
     margin: 0.5rem 0 0;
@@ -365,6 +370,5 @@ footer.site {
     .wrap { padding: 3rem 1.25rem 4rem; }
     ul.index li { grid-template-columns: 1fr; gap: 0.35rem; }
     ul.index time { padding-top: 0; }
-    header.site { margin-bottom: 1.75rem; }
     hr.rule { margin-bottom: 2.25rem; }
 }
