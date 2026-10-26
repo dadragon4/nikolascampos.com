@@ -43,7 +43,13 @@ header.site h1 {
     letter-spacing: 0.01em;
     margin: 0 0 0.35rem;
 }
-header.site h1 a { color: inherit; text-decoration: none; }
+header.site h1 a {
+    color: inherit;
+    text-decoration: none;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 5px;
+}
+header.site h1 a:hover { text-decoration-line: underline; }
 header.site p.tagline {
     margin: 0 0 1.5rem;
     color: var(--ink-soft);
@@ -51,15 +57,60 @@ header.site p.tagline {
     font-size: 1rem;
 }
 
-nav.site a {
-    margin-right: 1.25rem;
+nav.site {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem 1.25rem;
+}
+nav.site a,
+nav.site summary {
     font-size: 0.95rem;
     text-decoration: none;
     color: var(--ink);
     border-bottom: 1px solid transparent;
 }
 nav.site a:hover,
-nav.site a[aria-current="page"] { border-bottom-color: var(--ink); }
+nav.site a[aria-current="page"],
+nav.site summary:hover,
+nav.site summary.current { border-bottom-color: var(--ink); }
+
+/* Portfolio dropdown (a <details> element; js/site.js closes it on outside click) */
+nav.site details.menu { position: relative; }
+nav.site summary {
+    cursor: pointer;
+    list-style: none;
+}
+nav.site summary::-webkit-details-marker { display: none; }
+nav.site summary::after {
+    content: "▾";
+    margin-left: 0.3em;
+    font-size: 0.75em;
+    color: var(--ink-soft);
+}
+nav.site details[open] summary::after { content: "▴"; }
+nav.site summary:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+nav.site .menu-list {
+    position: absolute;
+    top: calc(100% + 0.6rem);
+    left: -0.9rem;
+    z-index: 10;
+    min-width: 10rem;
+    padding: 0.4rem 0;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    box-shadow: 0 8px 24px rgba(26, 26, 24, 0.07);
+}
+nav.site .menu-list a {
+    display: block;
+    padding: 0.35rem 0.9rem;
+    border-bottom: 0;
+}
+nav.site .menu-list a:hover { background: #f1efe9; }
+nav.site .menu-list a[aria-current="page"] { color: var(--accent); }
 
 hr.rule {
     border: none;
@@ -115,7 +166,56 @@ ul.index iframe[src*="youtube"] {
     height: auto;
     aspect-ratio: 16 / 9;
 }
-ul.index iframe[src*="spotify"] { border-radius: 12px; }
+ul.index iframe[src*="spotify"],
+.latest-item iframe[src*="spotify"] { border-radius: 12px; }
+
+/* Home page "Latest" feature */
+.latest { margin: 0 0 4.5rem; }
+.latest-card {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--rule);
+}
+.latest-card:first-child { padding-top: 0; }
+.latest-kind {
+    margin: 0 0 0.2rem;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+.latest-item time {
+    display: block;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+}
+.latest-item .entry { margin-top: 0.75rem; }
+.latest-item .entry > a {
+    font-size: 1.3rem;
+    text-decoration: none;
+    color: var(--ink);
+}
+.latest-item .entry > a:hover { color: var(--accent); }
+.latest-item iframe {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    border: 0;
+}
+.latest-item iframe[src*="youtube"] { height: auto; aspect-ratio: 16 / 9; }
+.latest-item .excerpt {
+    display: block;
+    margin: 0.5rem 0 0;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+}
+.latest-more {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+}
 
 p.intro {
     color: var(--ink-soft);
