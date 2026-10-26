@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Personal portfolio site for Nikolas Campos (writing, film, music). Hand-written static HTML with one shared stylesheet (`css/styles.css`) and one small script (`js/site.js`). There is no build step, package manager, test suite, or linter. Git repo on `main`, pushed to the public GitHub repo `dadragon4/nikolascampos.com` (`gh` handles auth). Commits use the GitHub no-reply email `62844398+dadragon4@users.noreply.github.com`; keep personal emails out of commits.
 
-**Deployment:** GitHub Pages publishes `main` (repo root) to https://dadragon4.github.io/nikolascampos.com/ about a minute after each push. `_config.yml` excludes `CLAUDE.md`, and Jekyll skips dot-folders like `.claude/`. As of Oct 26, 2026, the domain nikolascampos.com (registered at Namecheap) still pointed to the old Neocities site, pending a DNS switch to GitHub Pages.
+**Deployment:** GitHub Pages publishes `main` (repo root) to https://nikolascampos.com about a minute after each push. HTTPS is enforced, www and the github.io URL redirect to it, and the Let's Encrypt certificate auto-renews. `CNAME` holds the custom domain; don't delete it. `_config.yml` excludes `CLAUDE.md`, and Jekyll skips dot-folders like `.claude/`. DNS is at Namecheap: four A records to `185.199.108–111.153`, `www` CNAME to `dadragon4.github.io`. Neocities is no longer used.
 
 To preview, use the `site` config in `.claude/launch.json`. It runs `.claude/serve.py` on port 8000, a static server that sends `Cache-Control: no-store` so edits show on reload. A plain alternative (browser caching applies) is:
 
