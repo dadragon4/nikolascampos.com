@@ -8,6 +8,10 @@ All times are U.S. Eastern Time (EDT). Each time is when a change was saved, not
 
 ## Tuesday, October 27, 2026
 
+### 2:29 PM — "Latest" shows the newest first
+
+- **The home page's "Latest" list now sorts itself by date.** Whichever category had something new most recently (Blog, Writing, Music, or Film) shows first, and the least recently updated shows last. When you post or release something new, its card moves to the top on its own.
+
 ### 1:24 PM — New Blog
 
 - **New Blog page.** A new "Blog" link sits in the menu between Writing and About: Home · Portfolio · Music · Writing · Blog · About. Writing keeps the finished pieces; the blog is for looser notes and thoughts.

@@ -37,7 +37,8 @@
       media && (media.getAttribute('src') || media.getAttribute('href'))].join('|');
   };
 
-  document.querySelectorAll('[data-latest]').forEach(async (card) => {
+  const latestCards = [...document.querySelectorAll('[data-latest]')];
+  const refreshes = latestCards.map(async (card) => {
     const url = card.dataset.latest;
     const slot = card.querySelector('.latest-item');
     if (!slot) return warn(`Latest card for ${url} has no .latest-item`);
@@ -55,6 +56,18 @@
     } catch (err) {
       warn(`Latest: could not load ${url}; keeping fallback`, err);
     }
+  });
+
+  // Then order the cards newest-first by their entry's date. Only cards
+  // that are out of place get moved, since moving a player reloads it.
+  Promise.allSettled(refreshes).then(() => {
+    const dateOf = (card) => card.querySelector('.latest-item time[datetime]')?.getAttribute('datetime') || '';
+    const sorted = [...latestCards].sort((a, b) => dateOf(b).localeCompare(dateOf(a)));
+    sorted.forEach((card, i) => {
+      const parent = card.parentElement;
+      const here = parent.children[i];
+      if (here !== card) parent.insertBefore(card, here);
+    });
   });
 
   // "Now" ticker: Pause/Play button and a steady, calm scroll speed.
