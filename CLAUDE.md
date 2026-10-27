@@ -16,9 +16,9 @@ python3 -m http.server 8000
 
 ## Structure
 
-- Every page, including the posts in `writing/`, uses the same skeleton: `a.skip-link` (targets `#main`) → `.wrap` → `header.site` (name, tagline, nav) → `<main id="main">` (optional welcome/ticker, `hr.rule`, content) → `footer.site`. Pages in `writing/` use `../` for all site links, the stylesheet, and the script.
-- **The header, nav, footer, and `<head>` links are duplicated by hand in every page (5 top-level + each post).** A change to any of them means editing all of them identically.
-- Nav: Home · Portfolio ▾ (Film, Photography) · Writing · Music · About. (The Interests page was removed on Oct 26, 2026.) The Portfolio dropdown is a `<details class="menu">`. `js/site.js` closes it on outside click, on Escape (returning focus to the summary if focus was inside), and when keyboard focus leaves it. The current page's link carries `aria-current="page"`. On Film and Photography, the `<summary>` also gets `class="current"`. Posts mark "Writing".
+- Every page, including the posts in `writing/`, uses the same skeleton: `a.skip-link` (targets `#main`) → `.wrap` → `header.site` (name, `a.view-switch`, tagline, nav) → `<main id="main">` (optional welcome/ticker, `hr.rule`, content) → `footer.site`. Pages in `writing/` use `../` for all site links, the stylesheet, and the script.
+- **The header, nav, footer, and `<head>` links are duplicated by hand in every page (6 top-level + each post).** A change to any of them means editing all of them identically.
+- Nav: Home · Portfolio ▾ (Film, Photography) · Music · Writing · About. "About" links to `about.html` (the story of building the site with AI). The home page's `#about` section holds the personal "About me" text. (The Interests page was removed on Oct 26, 2026.) The Portfolio dropdown is a `<details class="menu">`. `js/site.js` closes it on outside click, on Escape (returning focus to the summary if focus was inside), and when keyboard focus leaves it. The current page's link carries `aria-current="page"`. On Film and Photography, the `<summary>` also gets `class="current"`. Posts mark "Writing".
 - Every page links `css/styles.css?v=N`. **Bump `N` on every page after editing the CSS**, or browsers keep serving the cached old stylesheet.
 - Home, Music, and Film have a `.ticker` (a scrolling "now" line with a Pause/Play button) between the header and `hr.rule`. Home also has a static `p.welcome` above it. Ticker items are `<li>`s, and the list appears **twice**: the second `<ul>` is an `aria-hidden="true"` duplicate for the seamless loop. Edit both copies identically. CSS adds the `·` separators, and `js/site.js` handles the button and sets a constant speed. With reduced motion, the duplicate and button are hidden and the text is static.
 - The home page's "Latest" section has one card per section (`data-latest="music.html"` etc.). `js/site.js` fetches that page and copies its first `ul.index > li` into the card, but only if that entry has a `<time datetime>` and an `.entry`. Otherwise the card's existing HTML (a fallback copy) stays. Refresh the fallback when the newest item changes. On localhost, the script logs `[site]` warnings for failed fetches or unexpected markup. The fetch needs the site to be served over http, not opened as a file.
@@ -28,6 +28,14 @@ python3 -m http.server 8000
 - Film's list is `<ul class="index stacked">`: the date sits on its own line above the video instead of in a left column.
 - Music, Film, and Writing pages share one list pattern: `<ul class="index">` → `<li>` containing `<time datetime="YYYY-MM-DD">` (shown as e.g. `Mar. 31 2025`) plus `<div class="entry">` (a link, Spotify iframe, or YouTube iframe, followed by an `.excerpt`). Newest entries go first. Keep `datetime` in sync with the visible date.
 - Posts are `<article class="post">` with `h2.post-title` and `span.meta` (byline and date). Add the `verse` class (`<article class="post verse">`) for line-by-line poems, which centers them. Prose stays left-aligned. A new post also needs an entry in `writing.html`.
+
+## Desktop theme (`desktop.html`)
+
+- An alternate Windows 7/"Aero"-inspired view of the site, with its own `css/desktop.css` and `js/desktop.js` (it doesn't load `styles.css` or `site.js`). Every regular page's header has `a.view-switch` ("Desktop view") linking to it; the desktop's taskbar and Start menu link back to `index.html`.
+- **Windows have no content of their own.** `js/desktop.js` fetches the regular pages and clones sections into windows, using the `APPS` list (`src` page + `pick` selectors, e.g. `about.html` → `#about-site`). Changing a regular page updates the desktop automatically. A new page needs an `APPS` entry, plus its id in the Start menu list if it should appear there.
+- Links inside windows open other site pages as new windows (writing posts open via `article.post`); external links open in a new tab. Now.txt is built from the home page ticker items.
+- Uses only original artwork (CSS gradients and inline SVG icons), no Microsoft assets. On screens under 640px, windows fill the screen.
+- `css/desktop.css` uses container queries, which the W3C CSS validator wrongly flags as errors. `desktop.html` itself validates.
 
 ## Styling conventions (`css/styles.css`)
 

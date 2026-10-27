@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desktop — Nikolas Campos</title>
+  <meta name="description" content="Nikolas Campos — writing, film, and music, as a retro desktop.">
+  <link rel="stylesheet" href="css/desktop.css?v=1">
+  <script src="js/desktop.js" defer></script>
+</head>
+<body class="booting">
+  <!-- Shared icon gradients (referenced by every icon SVG) -->
+  <svg class="defs" width="0" height="0" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="g-user" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9adbff"/><stop offset="1" stop-color="#1f6fbf"/></linearGradient>
+      <linearGradient id="g-fold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff2b0"/><stop offset="1" stop-color="#efbf35"/></linearGradient>
+      <linearGradient id="g-fold-b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6d870"/><stop offset="1" stop-color="#d49e1d"/></linearGradient>
+      <linearGradient id="g-music" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d0a8ff"/><stop offset="1" stop-color="#5a2aa6"/></linearGradient>
+      <linearGradient id="g-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bfe8ff"/><stop offset="1" stop-color="#3f8fd2"/></linearGradient>
+      <linearGradient id="g-metal" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f6f8"/><stop offset="1" stop-color="#9aa3ad"/></linearGradient>
+      <radialGradient id="g-lens" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#8fd6ff"/><stop offset=".6" stop-color="#1b4f8a"/><stop offset="1" stop-color="#0b1e36"/></radialGradient>
+      <linearGradient id="g-book" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4a6342"/><stop offset="1" stop-color="#6f8c64"/></linearGradient>
+    </defs>
+  </svg>
+
+  <div class="boot" aria-hidden="true">
+    <div class="boot-spinner"></div>
+    <p>Welcome</p>
+  </div>
+
+  <main class="desktop" id="desktop">
+    <h1 class="visually-hidden">Nikolas Campos — desktop view</h1>
+    <ul class="icons" id="icons" aria-label="Desktop"></ul>
+    <p class="watermark" aria-hidden="true">Nikolas Campos<br>Desktop Edition · Prototype</p>
+    <noscript><p class="noscript">This view needs JavaScript. <a href="index.html">Go to the classic site.</a></p></noscript>
+  </main>
+
+  <div class="startmenu" id="startmenu" hidden>
+    <div class="sm-left" id="sm-left"></div>
+    <div class="sm-right" id="sm-right"></div>
+  </div>
+
+  <footer class="taskbar">
+    <button type="button" class="orb" id="orb" aria-label="Start" aria-expanded="false" aria-controls="startmenu">
+      <span class="orb-ball"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z" fill="#fff"/></svg></span>
+    </button>
+    <div class="tasks" id="tasks"></div>
+    <div class="tray">
+      <a class="tray-classic" href="index.html">Classic view</a>
+      <div class="clock" id="clock"></div>
+      <button type="button" class="show-desktop" id="show-desktop" aria-label="Show desktop" title="Show desktop"></button>
+    </div>
+  </footer>
+</body>
+</html>

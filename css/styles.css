@@ -53,7 +53,29 @@ summary:focus-visible {
     padding: 5rem 1.5rem 6rem;
 }
 
-header.site { margin-bottom: 1.5rem; }
+header.site {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 1rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+header.site > :not(h1, .view-switch) { grid-column: 1 / -1; }
+
+/* Link to the desktop theme (desktop.html) */
+.view-switch {
+    padding: 0.4rem 0.65rem;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-decoration: none;
+    color: var(--ink-soft);
+}
+.view-switch:hover { color: var(--ink); border-color: var(--ink-soft); }
 
 /* Home page welcome line: same text style as the About blurb (p.intro),
    with its own divider on top */
@@ -374,4 +396,6 @@ footer.site {
     ul.index li { grid-template-columns: 1fr; gap: 0.35rem; }
     ul.index time { padding-top: 0; }
     hr.rule { margin-bottom: 2.25rem; }
+    /* Keep the name on one line: switch moves under the tagline */
+    .view-switch { grid-row: 3; grid-column: 1 / -1; justify-self: start; margin-bottom: 1rem; }
 }
