@@ -234,6 +234,9 @@ ul.index li {
     border-bottom: 1px solid var(--rule);
 }
 ul.index li:first-child { padding-top: 0; }
+/* Stacked lists (Film): date on its own line above the entry */
+ul.index.stacked li { grid-template-columns: 1fr; gap: 0.5rem; }
+ul.index.stacked time { padding-top: 0; }
 ul.index time {
     font-family: ui-monospace, "SF Mono", Menlo, monospace;
     font-size: 0.75rem;
