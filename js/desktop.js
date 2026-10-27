@@ -26,6 +26,7 @@
   const APPS = [
     { id: 'about', title: 'About Me', icon: 'user', src: 'index.html', pick: ['p.welcome', '#about'], size: [520, 360], crumb: 'About Me' },
     { id: 'writing', title: 'Writing', icon: 'folder', src: 'writing.html', pick: ['#writing'], size: [600, 440], crumb: 'Documents ▸ Writing' },
+    { id: 'blog', title: 'Blog', icon: 'folder', src: 'blog.html', pick: ['#blog'], size: [600, 440], crumb: 'Documents ▸ Blog' },
     { id: 'music', title: 'Music', icon: 'music', src: 'music.html', pick: ['#music'], size: [600, 560], crumb: 'Music' },
     { id: 'film', title: 'Film', icon: 'film', src: 'film.html', pick: ['#film'], size: [680, 580], crumb: 'Videos ▸ Film' },
     { id: 'photos', title: 'Photography', icon: 'camera', src: 'photography.html', pick: ['#photography'], size: [520, 320], crumb: 'Pictures ▸ Photography' },
@@ -83,7 +84,8 @@
       body.replaceChildren(frag);
       if (app.post) {
         const t = $('.post-title', body);
-        if (t) setTitle(rec, t.textContent.trim(), `Documents ▸ Writing ▸ ${t.textContent.trim()}`);
+        const folder = new URL(app.src).pathname.includes('/blog/') ? 'Blog' : 'Writing';
+        if (t) setTitle(rec, t.textContent.trim(), `Documents ▸ ${folder} ▸ ${t.textContent.trim()}`);
       }
       if (status) {
         const n = body.querySelectorAll('ul.index > li').length;
@@ -298,7 +300,7 @@
     return b;
   };
   const left = $('#sm-left');
-  ['about', 'site', 'now', 'music', 'film', 'writing', 'photos'].forEach((id) => left.append(smItem(appById(id))));
+  ['about', 'site', 'now', 'music', 'film', 'writing', 'blog', 'photos'].forEach((id) => left.append(smItem(appById(id))));
   left.append(Object.assign(document.createElement('hr'), { className: 'sm-sep' }), smItem(appById('classic')));
 
   const right = $('#sm-right');

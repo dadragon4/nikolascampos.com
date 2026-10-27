@@ -1,5 +1,25 @@
-# GitHub Pages settings. The site is plain HTML; this only keeps
-# project notes out of the published site.
+# GitHub Pages (Jekyll) settings. The regular pages are plain HTML and are
+# copied as-is. Jekyll only builds the blog: Markdown posts in _posts/ become
+# pages at /blog/<slug>.html using _layouts/post.html, and blog.html lists them.
+
+# Every post uses the post layout, so posts don't need "layout:" themselves.
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+permalink: /blog/:title.html
+
+# One line break in a post = one line break on the page (like a notes app).
+# A blank line starts a new paragraph.
+kramdown:
+  hard_wrap: true
+
+# Project notes stay out of the published site.
 exclude:
   - CLAUDE.md
   - CHANGELOG.md
+  - HOW-TO-POST.md
+  - README.md

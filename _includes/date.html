@@ -1,0 +1,4 @@
+{%- comment -%} Shows a date the way the rest of the site does, e.g. "Aug. 1 2026" or "June 19 2026". Use: {% include date.html date=post.date %} {%- endcomment -%}
+{%- assign months = "Jan.,Feb.,Mar.,Apr.,May,June,July,Aug.,Sept.,Oct.,Nov.,Dec." | split: "," -%}
+{%- assign m = include.date | date: "%-m" | minus: 1 -%}
+<time datetime="{{ include.date | date: '%Y-%m-%d' }}">{{ months[m] }} {{ include.date | date: "%-d %Y" }}</time>

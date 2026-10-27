@@ -240,6 +240,8 @@ body.dragging iframe { pointer-events: none; }
 .win-body .post .meta { display: block; margin-bottom: 18px; font: 12px var(--ui); color: #6d6d6d; }
 .win-body .post.verse { text-align: center; }
 .win-body blockquote { margin: 1em 0; padding-left: 1em; border-left: 3px solid #cfe0f1; color: #444; }
+.win-body .post img { display: block; max-width: 100%; height: auto; margin: 1.2em auto; }
+.win-body .post h2:not(.post-title), .win-body .post h3 { margin: 1.4em 0 0.5em; font: 700 18px/1.3 ui-serif, Georgia, serif; }
 
 /* Notepad window */
 .win-body.is-notepad { padding: 0; overflow: hidden; }

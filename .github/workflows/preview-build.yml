@@ -1,0 +1,26 @@
+# Builds the site with GitHub Pages' own Jekyll builder on any branch except
+# main, so changes can be checked before they go live. It doesn't deploy
+# anything: download the "site" artifact from the run to look at the output.
+name: Preview build
+
+on:
+  push:
+    branches-ignore: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+          name: site
