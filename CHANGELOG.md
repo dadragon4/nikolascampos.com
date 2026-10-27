@@ -8,14 +8,13 @@ All times are U.S. Eastern Time (EDT). Each time is when a change was saved, not
 
 ## Tuesday, October 27, 2026
 
-### 1:24 PM — New Blog (prepared, not live yet)
+### 1:24 PM — New Blog
 
 - **New Blog page.** A new "Blog" link sits in the menu between Writing and About: Home · Portfolio · Music · Writing · Blog · About. Writing keeps the finished pieces; the blog is for looser notes and thoughts.
 - **Posts are plain text files.** Each post is a simple text file (Markdown) that can be written from github.com, even on a phone. The site turns it into a page styled like the rest of the site and adds it to the Blog list automatically. A step-by-step guide, *HOW-TO-POST.md*, explains how to write, format, add pictures, and save drafts.
 - **First post:** "Welcome to the blog."
 - **Home page.** The "Latest" list now has a Blog card showing the newest post.
 - **Desktop view.** A new Blog folder in Documents (and in the Start menu) lists the posts; opening one shows it as a document window.
-- These changes are on a separate test version of the site and won't appear on nikolascampos.com until approved.
 
 ### 1:14 PM — New subtitle, welcome line, and About page text
 
