@@ -418,6 +418,8 @@ footer.site {
     ul.index li { grid-template-columns: 1fr; gap: 0.35rem; }
     ul.index time { padding-top: 0; }
     hr.rule { margin-bottom: 2.25rem; }
+    /* Six nav links: tighter gaps keep them on one line on most phones */
+    nav.site { column-gap: 0.7rem; }
     /* Keep the name on one line: switch moves under the tagline */
     .view-switch { grid-row: 3; grid-column: 1 / -1; justify-self: start; margin-bottom: 1rem; }
 }
