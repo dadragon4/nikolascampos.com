@@ -381,6 +381,28 @@ article.post code {
     font-family: ui-monospace, "SF Mono", Menlo, monospace;
     font-size: 0.85em;
 }
+/* Extra elements that Markdown blog posts can produce */
+article.post h2:not(.post-title),
+article.post h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 2.25rem 0 0.75rem;
+}
+article.post ul,
+article.post ol { margin: 0 0 1.4rem; padding-left: 1.4rem; }
+article.post li { margin-bottom: 0.4rem; }
+article.post img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 2rem auto;
+}
+article.post hr {
+    border: 0;
+    border-top: 1px solid var(--rule);
+    margin: 2.5rem 0;
+}
+.post-back { margin: 3rem 0 0; font-size: 0.9rem; }
 
 footer.site {
     margin-top: 5rem;
