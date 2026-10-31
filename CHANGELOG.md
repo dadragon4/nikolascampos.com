@@ -8,6 +8,10 @@ All times are U.S. Eastern Time (EDT). Each time is when a change was saved, not
 
 ## Saturday, October 31, 2026
 
+### 3:17 PM — Menu button on phones
+
+- **On phones, the menu now folds away** behind a **Menu** button next to the name. Tap it to show the links as a list that's easy to tap, and tap **Close** to hide them. On computers, the menu looks the same as before.
+
 ### 3:13 PM — Admin shortcut
 
 - **nikolascampos.com/admin** now opens the site editor (Pages CMS) directly. It isn't linked anywhere or shown on Google. Only Niko's GitHub account can sign in and make changes.

@@ -16,7 +16,8 @@
   <meta property="og:description" content="Photography by Nikolas Campos.">
   <meta property="og:url" content="https://www.nikolascampos.com/photography.html">
   <meta name="twitter:card" content="summary">
-  <link rel="stylesheet" href="css/styles.css?v=13">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="css/styles.css?v=14">
   <script src="js/site.js" defer></script>
 </head>
 <body>
@@ -26,8 +27,9 @@
     <header class="site">
       <h1><a href="index.html">Nikolas Campos</a></h1>
       <a class="view-switch" href="desktop.html">Desktop view</a>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle-icon" aria-hidden="true">☰</span> <span class="nav-toggle-label">Menu</span></button>
       <p class="tagline">Media. Music. Life.</p>
-      <nav class="site">
+      <nav class="site" id="site-nav" aria-label="Main">
         <a href="index.html">Home</a>
         <a href="film.html">Film</a>
         <a href="music.html">Music</a>

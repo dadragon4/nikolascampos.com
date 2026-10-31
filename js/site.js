@@ -39,6 +39,26 @@
     });
   });
 
+  // Phone menu: the Menu button (shown only on phones) opens and closes the
+  // nav. Escape closes it and returns focus to the button.
+  const navToggle = document.querySelector('.nav-toggle');
+  const siteNav = document.getElementById('site-nav');
+  if (navToggle && siteNav) {
+    const toggleLabel = navToggle.querySelector('.nav-toggle-label');
+    const setOpen = (open) => {
+      siteNav.classList.toggle('is-open', open);
+      navToggle.setAttribute('aria-expanded', String(open));
+      if (toggleLabel) toggleLabel.textContent = open ? 'Close' : 'Menu';
+    };
+    navToggle.addEventListener('click', () => setOpen(!siteNav.classList.contains('is-open')));
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape' || !siteNav.classList.contains('is-open')) return;
+      const hadFocus = siteNav.contains(document.activeElement) || document.activeElement === navToggle;
+      setOpen(false);
+      if (hadFocus) navToggle.focus();
+    });
+  }
+
   // Home page "Latest" cards: show the newest entry (first <li>) from each
   // section page, so adding an item to music.html etc. updates the home page.
   // The card's existing HTML is the fallback and is kept unless the fetched

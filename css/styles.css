@@ -84,7 +84,7 @@ header.site {
     align-items: center;
     margin-bottom: 1.5rem;
 }
-header.site > :not(h1, .view-switch) { grid-column: 1 / -1; }
+header.site > :not(h1, .view-switch, .nav-toggle) { grid-column: 1 / -1; }
 
 /* Link to the desktop theme (desktop.html) */
 .view-switch {
@@ -254,6 +254,10 @@ nav.site .menu-list a {
 }
 nav.site .menu-list a:hover { background: var(--wash); }
 nav.site .menu-list a[aria-current="page"] { color: var(--accent); }
+
+/* Phone menu button (shown only on phones, and only with JavaScript on;
+   the "js" class is set by a one-line script in each page's head). */
+.nav-toggle { display: none; }
 
 hr.rule {
     border: none;
@@ -479,6 +483,41 @@ p.contact-email { font-size: 1.25rem; margin: 1.5rem 0; overflow-wrap: anywhere;
     nav.site { column-gap: 0.7rem; }
     /* Keep the name on one line: switch moves under the tagline */
     .view-switch { grid-row: 3; grid-column: 1 / -1; justify-self: start; margin-bottom: 1rem; }
+
+    /* Collapsible menu: the Menu button sits beside the name, and the links
+       open as a stacked list below the Desktop view button. */
+    .js .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        grid-row: 1;
+        grid-column: 2;
+        min-height: 44px;
+        padding: 0 0.75rem;
+        border: 1px solid var(--rule);
+        border-radius: 3px;
+        background: none;
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        font-size: 0.7rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ink);
+        cursor: pointer;
+    }
+    .js .nav-toggle-icon { font-size: 1rem; letter-spacing: 0; }
+    .js nav.site { display: none; }
+    .js nav.site.is-open {
+        display: block;
+        margin-bottom: 0.5rem;
+        border-top: 1px solid var(--rule);
+    }
+    .js nav.site.is-open a {
+        display: block;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--rule);
+        font-size: 1.05rem;
+    }
+    .js nav.site.is-open a[aria-current="page"] { color: var(--accent); font-weight: 700; border-bottom-color: var(--rule); }
 }
 
 /* Windows high-contrast (forced colors): keep the current page marked */
@@ -490,7 +529,7 @@ p.contact-email { font-size: 1.25rem; margin: 1.5rem 0; overflow-wrap: anywhere;
 
 /* Printing: just the content */
 @media print {
-    .skip-link, .view-switch, nav.site, .sitemap, .ticker, .latest-more { display: none; }
+    .skip-link, .view-switch, .nav-toggle, nav.site, .sitemap, .ticker, .latest-more { display: none; }
     body { background: #fff; color: #000; }
     .wrap { max-width: none; padding: 0; }
     a { color: inherit; }
