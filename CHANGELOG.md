@@ -6,6 +6,30 @@ All times are U.S. Eastern Time (EDT). Each time is when a change was saved, not
 
 ---
 
+## Saturday, October 31, 2026
+
+### 10:37 AM — Professional front door, dark mode, better search results
+
+- **New footer** on every page: "© 2026 Nikolas Campos. Built by hand, with help from Claude."
+- **Two sides of the site.** The classic site is now the professional front door: Home, Portfolio (Film, Photography), Music, About. **Writing and Blog moved to the Desktop view**, the personal side. Their pages still work for anyone with a link.
+- **More professional About section** on the home page: a short summary of who Niko is and what he does. It also shows in the Desktop view's About Me window.
+- **Dark mode.** If your phone or computer is set to dark mode, the site switches to a matching dark version.
+- **Easier to read for more people:**
+  - The site follows your browser's text-size setting.
+  - It uses stronger contrast when your device asks for it, and works with Windows high-contrast mode.
+  - Printed pages show just the content.
+- **Lighter on slower devices:**
+  - The Desktop view drops its glass blur effects when "Reduce transparency" is on.
+  - The home page skips extra downloads when Data Saver is on.
+- **Better Google results:**
+  - Clearer page titles and descriptions.
+  - A sitemap that lists every page.
+  - A profile that connects the site to Niko's YouTube channel and Spotify artist page.
+  - Proper titles and descriptions when links are shared in messages and on social media.
+- **New "page not found" page** with links back to the home page and the Desktop view.
+- **The site's address now starts with www.** (www.nikolascampos.com). The old address forwards there automatically.
+- **Plans drafted** (not built yet): an admin dashboard, a password-only page, a move to Cloudflare, and ideas to round out the site.
+
 ## Tuesday, October 27, 2026
 
 ### 2:29 PM — "Latest" shows the newest first

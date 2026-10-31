@@ -1,6 +1,6 @@
 # How to post on the blog
 
-Every blog post is one plain text file in the `_posts` folder. When you add one, the site turns it into a page that matches the rest of the site, adds it to the top of the Blog page, the home page's "Latest" list, and the Blog folder in Desktop view. You never touch any HTML.
+Every blog post is one plain text file in the `_posts` folder. When you add one, the site turns it into a page that matches the rest of the site, adds it to the top of the Blog list and the Blog folder in Desktop view. (Since Oct 31, 2026, the blog lives in Desktop view and isn't in the classic site's menu or home page.) You never touch any HTML.
 
 It goes live about a minute after you save it.
 
