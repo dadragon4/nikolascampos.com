@@ -11,6 +11,7 @@ All times are U.S. Eastern Time (EDT). Each time is when a change was saved, not
 ### 3:17 PM — Menu button on phones
 
 - **On phones, the menu now folds away** behind a **Menu** button next to the name. Tap it to show the links as a list that's easy to tap, and tap **Close** to hide them. On computers, the menu looks the same as before.
+- **Fix:** right after it went live, the Menu button didn't respond on some phones, because they were still using a saved older copy of the site's script. Phones now always get the latest script, and if it ever fails to load, the links simply show instead of staying hidden.
 
 ### 3:13 PM — Admin shortcut
 
