@@ -8,6 +8,16 @@ All times are U.S. Eastern Time (EDT). Each time is when a change was saved, not
 
 ## Saturday, October 31, 2026
 
+### 10:56 AM — New professional bios, and a personal Desktop About
+
+- **About page:** it's now Niko's full professional bio covering his work as an IT Support Specialist at Valencia College, his degree from UCF in Media Production and Management, more than ten years of making music, and films like *Waiting*.
+- **Home page About section:** replaced with a short version of the same bio.
+- **Desktop view keeps its own About:**
+  - The About Me window shows Niko's personal, casual introduction (Halo, Disney, "thanks, Pop").
+  - The story of building the site with AI moved off the professional About page and now lives only in the Desktop's "About This Site" window.
+  - The personal side reads differently from the professional bios.
+- **Search and sharing:** the About page's description (what Google and link previews show) now describes the professional bio. Behind the scenes, the site tells search engines Niko is an IT Support Specialist at Valencia College, a UCF graduate, and lists his skills.
+
 ### 10:37 AM — Professional front door, dark mode, better search results
 
 - **New footer** on every page: "© 2026 Nikolas Campos. Built by hand, with help from Claude."

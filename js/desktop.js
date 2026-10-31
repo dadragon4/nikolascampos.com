@@ -24,17 +24,18 @@
   };
 
   const APPS = [
-    { id: 'about', title: 'About Me', icon: 'user', src: 'index.html', pick: ['p.welcome', '#about'], size: [520, 360], crumb: 'About Me' },
+    { id: 'about', title: 'About Me', icon: 'user', template: 'desktop-about', size: [520, 360], crumb: 'About Me' },
     { id: 'writing', title: 'Writing', icon: 'folder', src: 'writing.html', pick: ['#writing'], size: [600, 440], crumb: 'Documents ▸ Writing' },
     { id: 'blog', title: 'Blog', icon: 'folder', src: 'blog.html', pick: ['#blog'], size: [600, 440], crumb: 'Documents ▸ Blog' },
     { id: 'music', title: 'Music', icon: 'music', src: 'music.html', pick: ['#music'], size: [600, 560], crumb: 'Music' },
     { id: 'film', title: 'Film', icon: 'film', src: 'film.html', pick: ['#film'], size: [680, 580], crumb: 'Videos ▸ Film' },
     { id: 'photos', title: 'Photography', icon: 'camera', src: 'photography.html', pick: ['#photography'], size: [520, 320], crumb: 'Pictures ▸ Photography' },
-    { id: 'site', title: 'About This Site', icon: 'note', src: 'about.html', pick: ['#about-site'], size: [560, 440], crumb: 'Documents ▸ About This Site' },
+    { id: 'site', title: 'About This Site', icon: 'note', template: 'desktop-site', size: [560, 440], crumb: 'Documents ▸ About This Site' },
     { id: 'now', title: 'Now.txt', icon: 'note', src: 'index.html', size: [420, 280], notepad: true },
     { id: 'classic', title: 'Classic Site', icon: 'book', href: 'index.html' },
   ];
   const appById = (id) => APPS.find((a) => a.id === id);
+  const warnMissing = (id) => console.warn('[desktop]', `No <template id="${id}"> in desktop.html`);
 
   // ---- Loading page content ----------------------------------------------
   const pages = new Map();
@@ -62,6 +63,14 @@
 
   async function fill(rec) {
     const { app, body, status } = rec;
+    // Content stored in desktop.html itself (the Desktop's own About Me)
+    if (app.template) {
+      const tpl = document.getElementById(app.template);
+      if (tpl) body.replaceChildren(tpl.content.cloneNode(true));
+      else warnMissing(app.template);
+      if (status) status.textContent = 'Done';
+      return;
+    }
     try {
       const doc = await getPage(new URL(app.src, location.href).href);
       if (app.notepad) {
