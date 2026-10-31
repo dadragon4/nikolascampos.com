@@ -4,15 +4,38 @@ Every blog post is one plain text file in the `_posts` folder. When you add one,
 
 It goes live about a minute after you save it.
 
-## The easy way: the admin editor (Pages CMS)
+## The easy way: your admin editor
 
-1. Go to **nikolascampos.com/admin** (your private admin page, worth bookmarking) and tap **Edit the site**, or go straight to **app.pagescms.org**. Sign in with GitHub. (The admin page's other button, **Visitor stats**, opens your GoatCounter dashboard.) The first time, allow it access to the `nikolascampos.com` repository.
-2. Open **Blog posts** and click **Add an entry**. Fill in the title, an optional one-line excerpt, and the post itself. The editor has buttons for bold, italics, headings, links and pictures. Check **Poem** for a poem.
-3. Click **Save**. The file is named and dated for you, and the post is live about a minute later.
+Go to **nikolascampos.com/admin** (your private admin page, worth bookmarking). It has three buttons:
+- **Edit the site:** your own editor (Sveltia CMS), signed in with a GitHub token.
+- **Backup editor:** Pages CMS, with a regular GitHub sign-in. Use it on a device where you haven't saved your token.
+- **Visitor stats:** your GoatCounter dashboard.
+
+Both editors work on the same posts and pictures, so use whichever is handy.
+
+### First time on a device: make and paste your token
+
+The token works like a password that only lets the editor change this website. You make it once on GitHub. Saved on a device, it keeps you signed in there.
+
+1. On github.com, tap your **profile picture**, then **Settings**, then **Developer settings** (at the bottom of the left menu).
+2. Tap **Personal access tokens**, then **Fine-grained tokens**, then **Generate new token**.
+3. **Name:** `nikolascampos.com editor`. **Expiration:** pick one, for example 1 year. GitHub emails you before it expires.
+4. **Repository access:** choose **Only select repositories** and pick **nikolascampos.com**.
+5. **Permissions:** under Repository permissions, set **Contents** to **Read and write**. Leave everything else alone.
+6. Tap **Generate token** and **copy** it. GitHub only shows it once.
+7. Go to **nikolascampos.com/admin**, tap **Edit the site**, then **Sign In Using Access Token**, and paste it.
+
+Keep the token private, like a password. Don't paste it anywhere else, don't text or email it, and only sign in on your own devices. If a device is lost, or you think someone saw the token, go back to **Fine-grained tokens** on GitHub, delete it, and make a new one. GitHub won't let the token be saved into the site's files by accident (push protection is on).
+
+### Writing a post
+
+1. Open **Blog posts** and tap **New**. Fill in the title, check the date (today by default), add an optional one-line excerpt, and write the post. The editor has buttons for bold, italics, headings, links and pictures. Check **Poem** for a poem.
+2. To add a picture, use the picture button in the editor. Photos are shrunk and converted to a fast web format (WebP) automatically.
+3. Tap **Save**. The file is named and dated for you, and the post is live about a minute later.
 
 **Drafts** works the same way, but nothing there is published. To publish a draft, copy its text into a new Blog post and delete the draft.
 
-The rest of this guide is the by-hand way, writing the file on github.com. Both make the same kind of file.
+The rest of this guide is the by-hand way, writing the file on github.com. All three ways make the same kind of file.
 
 ## 1. Name the file
 

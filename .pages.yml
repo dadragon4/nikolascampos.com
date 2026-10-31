@@ -1,4 +1,6 @@
-# Settings for Pages CMS (https://app.pagescms.org), the site's admin.
+# Settings for Pages CMS (https://app.pagescms.org), the backup editor.
+# The main editor is Sveltia CMS at /admin/cms/ (admin/cms/config.yml);
+# keep the fields of both in sync.
 # Sign in there with GitHub to write blog posts and upload images in a
 # friendly editor. Saving makes a commit to main, so the site updates about a
 # minute later, like any other push. Jekyll ignores this file (it starts with
@@ -26,6 +28,11 @@ content:
         label: Title
         type: string
         required: true
+      # Same Date field as Sveltia CMS (admin/cms/config.yml), so neither
+      # editor drops it. Jekyll uses it as the post's date.
+      - name: date
+        label: Date
+        type: date
       - name: excerpt
         label: Excerpt (one-line summary for the Blog list and Google)
         type: text

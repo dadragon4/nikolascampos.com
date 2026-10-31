@@ -8,6 +8,14 @@ All times are U.S. Eastern Time (EDT). Each time is when a change was saved, not
 
 ## Saturday, October 31, 2026
 
+### 5:37 PM — The site's own editor
+
+- **New editor built into the site** at nikolascampos.com/admin/cms/ (the **Edit the site** button on the admin page), using Sveltia CMS. Write blog posts and drafts and upload pictures right on Niko's own site.
+- **Signs in with a GitHub token** that only lets the editor change this website. It's saved on the device where it was pasted, so other devices can't get in without it.
+- **Pictures are shrunk and converted** to a fast web format automatically when uploaded.
+- **Pages CMS stays as a backup editor,** for signing in from a device without the token. Both editors work on the same posts.
+- *HOW-TO-POST.md* explains how to make the token and write a post.
+
 ### 5:31 PM — Admin page with stats
 
 - **nikolascampos.com/admin** is now a small private page with two buttons: **Edit the site** (the editor) and **Visitor stats** (the GoatCounter dashboard). Both still need Niko's sign-in.

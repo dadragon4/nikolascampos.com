@@ -1,0 +1,73 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms@0.246.1/schema/sveltia-cms.json
+#
+# Settings for Sveltia CMS, the site's own editor at nikolascampos.com/admin/cms/.
+# Sign in with a GitHub fine-grained token limited to this repository
+# (Contents: read and write). The token is saved only in that browser.
+# Saving makes a commit to main, so the site updates about a minute later.
+# Keep the fields in sync with .pages.yml (Pages CMS, the backup editor)
+# and HOW-TO-POST.md.
+
+backend:
+  name: github
+  repo: dadragon4/nikolascampos.com
+  branch: main
+  # Token sign-in only (the "Sign In with GitHub" button needs a separate
+  # sign-in server, which this site doesn't have).
+  auth_methods: [token]
+
+site_url: https://www.nikolascampos.com
+display_url: https://www.nikolascampos.com
+
+# Uploaded pictures: stored in images/blog/, linked as /images/blog/name.webp.
+# Photos are shrunk to at most 2000px and converted to WebP so pages stay fast,
+# and file names are made web-safe.
+media_folder: images/blog
+public_folder: /images/blog
+media_libraries:
+  default:
+    config:
+      max_file_size: 15000000
+      slugify_filename: true
+      transformations:
+        raster_image:
+          format: webp
+          quality: 85
+          width: 2000
+          height: 2000
+
+# Web-safe file names for posts (no accents or symbols, which can break Jekyll).
+slug:
+  encoding: ascii
+  clean_accents: true
+
+collections:
+  - name: posts
+    label: Blog posts
+    label_singular: Blog post
+    folder: _posts
+    create: true
+    # Jekyll takes the post's date from the file name, e.g. 2026-10-31-my-post.md.
+    # The date comes from the Date field (local time), so a post saved late at
+    # night doesn't get tomorrow's date (Jekyll hides future posts).
+    slug: "{{date | date('YYYY-MM-DD')}}-{{slug}}"
+    summary: "{{title}} · {{date | date('MMM D, YYYY')}}"
+    sortable_fields: [date, title]
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: date, label: Date, widget: datetime, type: date, default: "{{now}}" }
+      - { name: excerpt, label: "Excerpt (one-line summary for the Blog list and Google)", widget: text, required: false }
+      - { name: verse, label: "Poem (centers each line)", widget: boolean, required: false, default: false }
+      - { name: body, label: Post, widget: markdown }
+
+  - name: drafts
+    label: Drafts (not published)
+    label_singular: Draft
+    folder: _drafts
+    create: true
+    # Drafts have no date. To publish one, copy it into a new Blog post.
+    slug: "{{slug}}"
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: excerpt, label: Excerpt, widget: text, required: false }
+      - { name: verse, label: "Poem (centers each line)", widget: boolean, required: false, default: false }
+      - { name: body, label: Post, widget: markdown }

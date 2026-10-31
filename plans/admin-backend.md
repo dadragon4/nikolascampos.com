@@ -1,6 +1,6 @@
 # Draft: An admin backend for nikolascampos.com
 
-*Status: started Oct 31, 2026. Step 1 (analytics, GoatCounter) is live: dashboard at dadragon4.goatcounter.com. Step 2 (Pages CMS for blog posts, drafts and images) is set up in `.pages.yml`. Everything else here is still an idea.*
+*Status: started Oct 31, 2026. Step 1 (analytics, GoatCounter) is live: dashboard at dadragon4.goatcounter.com. Step 2 is done twice over: Pages CMS (`.pages.yml`) and, as the main editor, Sveltia CMS at /admin/cms/ with GitHub-token sign-in (`admin/cms/config.yml`). Everything else here is still an idea.*
 
 ## What it should do
 
