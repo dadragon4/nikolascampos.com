@@ -8,6 +8,10 @@ All times are U.S. Eastern Time (EDT). Each time is when a change was saved, not
 
 ## Saturday, October 31, 2026
 
+### 5:31 PM — Admin page with stats
+
+- **nikolascampos.com/admin** is now a small private page with two buttons: **Edit the site** (the editor) and **Visitor stats** (the GoatCounter dashboard). Both still need Niko's sign-in.
+
 ### 5:26 PM — Visitor counts are on
 
 - **The site now counts visits** with GoatCounter: how many people visit, which pages they read, and where they came from. It uses no cookies and collects no personal information, so there's no cookie banner. Niko's dashboard is at dadragon4.goatcounter.com.

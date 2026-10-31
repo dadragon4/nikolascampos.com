@@ -469,6 +469,15 @@ ul.services li:last-child { border-bottom: 1px solid var(--rule); }
 ul.services h3 { margin: 0 0 0.3rem; font-size: 1.05rem; }
 ul.services p { margin: 0; color: var(--ink-soft); }
 
+/* Admin page (admin/index.html) */
+.admin-title { font-size: 1.9rem; font-weight: 400; margin: 0 0 2rem; }
+ul.admin-links { list-style: none; margin: 0 0 2rem; padding: 0; }
+ul.admin-links li { padding: 1.1rem 0; border-top: 1px solid var(--rule); }
+ul.admin-links li:last-child { border-bottom: 1px solid var(--rule); }
+ul.admin-links a { font-size: 1.2rem; }
+ul.admin-links p { margin: 0.3rem 0 0; color: var(--ink-soft); }
+.admin-note { color: var(--ink-soft); font-size: 0.9rem; }
+
 /* Contact page email link */
 p.contact-email { font-size: 1.25rem; margin: 1.5rem 0; overflow-wrap: anywhere; }
 
