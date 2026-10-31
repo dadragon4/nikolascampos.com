@@ -8,6 +8,10 @@ All times are U.S. Eastern Time (EDT). Each time is when a change was saved, not
 
 ## Saturday, October 31, 2026
 
+### 5:52 PM — Changelog in the admin
+
+- **New Changelog page** in the admin (nikolascampos.com/admin, then **Changelog**). It shows every change to the site grouped by day, newest first, with a search box. It updates by itself a few minutes after this changelog changes.
+
 ### 5:37 PM — The site's own editor
 
 - **New editor built into the site** at nikolascampos.com/admin/cms/ (the **Edit the site** button on the admin page), using Sveltia CMS. Write blog posts and drafts and upload pictures right on Niko's own site.

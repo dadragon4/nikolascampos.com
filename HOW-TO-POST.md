@@ -6,10 +6,11 @@ It goes live about a minute after you save it.
 
 ## The easy way: your admin editor
 
-Go to **nikolascampos.com/admin** (your private admin page, worth bookmarking). It has three buttons:
+Go to **nikolascampos.com/admin** (your private admin page, worth bookmarking). It has four buttons:
 - **Edit the site:** your own editor (Sveltia CMS), signed in with a GitHub token.
 - **Backup editor:** Pages CMS, with a regular GitHub sign-in. Use it on a device where you haven't saved your token.
 - **Visitor stats:** your GoatCounter dashboard.
+- **Changelog:** every change to the site, by date, with a search box.
 
 Both editors work on the same posts and pictures, so use whichever is handy.
 
