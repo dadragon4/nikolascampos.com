@@ -41,7 +41,7 @@ GoatCounter (privacy-friendly: no cookies, no cookie banner). `js/site.js` and `
 
 ## Admin (Pages CMS)
 
-`.pages.yml` configures [Pages CMS](https://app.pagescms.org), a hosted editor: Niko signs in with GitHub and edits Blog posts (`_posts/`), Drafts (`_drafts/`, kept by `_drafts/.gitkeep`) and images (`images/blog/`). The field named `body` is the Markdown below the front matter. Saving commits to `main`, which publishes. Keep `.pages.yml` in sync with the front matter fields documented in `HOW-TO-POST.md`. Plans for more (portfolio entries, analytics, changelog view) are in `plans/admin-backend.md`.
+`.pages.yml` configures [Pages CMS](https://app.pagescms.org), a hosted editor: Niko signs in with GitHub and edits Blog posts (`_posts/`), Drafts (`_drafts/`, kept by `_drafts/.gitkeep`) and images (`images/blog/`). The field named `body` is the Markdown below the front matter. Saving commits to `main`, which publishes. `admin/index.html` (nikolascampos.com/admin) is a private shortcut: a meta refresh to `https://app.pagescms.org/dadragon4/nikolascampos.com/main`, `noindex, nofollow`, `sitemap: false` via `_config.yml`, and linked from nowhere. It is the one page without the site skeleton. Access is protected by GitHub sign-in (only accounts with write access to the repo can edit), not by the page. Keep `.pages.yml` in sync with the front matter fields documented in `HOW-TO-POST.md`. Plans for more (portfolio entries, analytics, changelog view) are in `plans/admin-backend.md`.
 
 ## Blog (Jekyll)
 

@@ -6,7 +6,7 @@ It goes live about a minute after you save it.
 
 ## The easy way: the admin editor (Pages CMS)
 
-1. Go to **app.pagescms.org** and sign in with GitHub. The first time, allow it access to the `nikolascampos.com` repository.
+1. Go to **nikolascampos.com/admin** (a private shortcut to the editor, worth bookmarking) or **app.pagescms.org**, and sign in with GitHub. The first time, allow it access to the `nikolascampos.com` repository.
 2. Open **Blog posts** and click **Add an entry**. Fill in the title, an optional one-line excerpt, and the post itself. The editor has buttons for bold, italics, headings, links and pictures. Check **Poem** for a poem.
 3. Click **Save**. The file is named and dated for you, and the post is live about a minute later.
 

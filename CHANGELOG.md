@@ -8,6 +8,10 @@ All times are U.S. Eastern Time (EDT). Each time is when a change was saved, not
 
 ## Saturday, October 31, 2026
 
+### 3:13 PM — Admin shortcut
+
+- **nikolascampos.com/admin** now opens the site editor (Pages CMS) directly. It isn't linked anywhere or shown on Google. Only Niko's GitHub account can sign in and make changes.
+
 ### 3:04 PM — Services and Contact pages, a footer site map, and the start of an admin
 
 - **New menu:** Home · Film · Music · Services · About · Contact.
