@@ -39,6 +39,8 @@
 
   const latestCards = [...document.querySelectorAll('[data-latest]')];
   const refreshes = latestCards.map(async (card) => {
+    // Data Saver on: keep the copy already in the page, skip the extra downloads.
+    if (navigator.connection?.saveData) return;
     const url = card.dataset.latest;
     const slot = card.querySelector('.latest-item');
     if (!slot) return warn(`Latest card for ${url} has no .latest-item`);

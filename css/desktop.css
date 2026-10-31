@@ -421,3 +421,16 @@ body:not(.booting) .boot { opacity: 0; pointer-events: none; }
     .win, .boot { animation: none; transition: none; }
     .boot-spinner { animation-duration: 3s; }
 }
+
+/* "Reduce transparency" (macOS/iOS/Windows): solid surfaces instead of
+   blurred glass, which is also much lighter on slower computers. */
+@media (prefers-reduced-transparency: reduce) {
+    .win, .taskbar, .startmenu {
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+    }
+    .win { background: #c4d9ef; }
+    .win.active { background: #a9c9ec; }
+    .taskbar { background: #16304f; }
+    .startmenu { background: #1b375a; }
+}

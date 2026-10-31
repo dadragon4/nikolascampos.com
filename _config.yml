@@ -9,8 +9,24 @@ defaults:
       type: posts
     values:
       layout: post
+  # Keep these out of the sitemap
+  - scope:
+      path: "desktop.html"
+    values:
+      sitemap: false
+  - scope:
+      path: "404.html"
+    values:
+      sitemap: false
 
 permalink: /blog/:title.html
+
+# The site's address (used for the sitemap and blog post links in search results).
+url: https://www.nikolascampos.com
+
+# Builds /sitemap.xml automatically, including every blog post.
+plugins:
+  - jekyll-sitemap
 
 # One line break in a post = one line break on the page (like a notes app).
 # A blank line starts a new paragraph.
@@ -23,3 +39,4 @@ exclude:
   - CHANGELOG.md
   - HOW-TO-POST.md
   - README.md
+  - plans
