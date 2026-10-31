@@ -31,6 +31,9 @@ defaults:
 
 permalink: /blog/:title.html
 
+# Post dates use Eastern time.
+timezone: America/New_York
+
 # The site's address (used for the sitemap and blog post links in search results).
 url: https://www.nikolascampos.com
 

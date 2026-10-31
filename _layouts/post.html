@@ -6,17 +6,21 @@
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#161614" media="(prefers-color-scheme: dark)">
+  {%- assign summary = page.excerpt | strip_html | normalize_whitespace | strip -%}
+  {%- if summary == "" -%}{%- assign summary = content | strip_html | normalize_whitespace | strip -%}{%- endif -%}
+  {%- assign summary = summary | truncate: 160 | escape %}
   <title>{{ page.title | escape }} — Nikolas Campos</title>
-  <meta name="description" content="{{ page.excerpt | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+  <meta name="description" content="{{ summary }}">
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Nikolas Campos">
   <meta property="og:title" content="{{ page.title | escape }} — Nikolas Campos">
-  <meta property="og:description" content="{{ page.excerpt | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+  <meta property="og:description" content="{{ summary }}">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
   <meta name="twitter:card" content="summary">
+  <script>document.documentElement.classList.add('js');addEventListener('load',()=>{if(!document.documentElement.classList.contains('nav-ready'))document.documentElement.classList.remove('js');});</script>
   <link rel="stylesheet" href="../css/styles.css?v=14">
-  <script src="../js/site.js?v=2" defer></script>
+  <script src="../js/site.js?v=3" defer onerror="document.documentElement.classList.remove('js')"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>

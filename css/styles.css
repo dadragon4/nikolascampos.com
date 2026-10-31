@@ -255,8 +255,8 @@ nav.site .menu-list a {
 nav.site .menu-list a:hover { background: var(--wash); }
 nav.site .menu-list a[aria-current="page"] { color: var(--accent); }
 
-/* Phone menu button (shown only on phones, and only once js/site.js has
-   added the "js" class, so the links never get stuck hidden). */
+/* Phone menu button (shown only on phones, and only with the "js" class:
+   set by each page's head script, kept only if js/site.js runs). */
 .nav-toggle { display: none; }
 
 hr.rule {

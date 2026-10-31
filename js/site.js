@@ -40,13 +40,14 @@
   });
 
   // Phone menu: the Menu button (shown only on phones) opens and closes the
-  // nav. Escape closes it and returns focus to the button. The "js" class is
-  // what shows the button and folds the nav away, and it's only added here,
-  // so if this script is missing or out of date the links still show.
+  // nav. Escape closes it and returns focus to the button. A one-line script
+  // in each page's head adds the "js" class right away (so the full nav
+  // doesn't flash on load) and removes it again at page load unless this
+  // marks "nav-ready", so the links never get stuck hidden.
   const navToggle = document.querySelector('.nav-toggle');
   const siteNav = document.getElementById('site-nav');
   if (navToggle && siteNav) {
-    document.documentElement.classList.add('js');
+    document.documentElement.classList.add('js', 'nav-ready');
     const toggleLabel = navToggle.querySelector('.nav-toggle-label');
     const setOpen = (open) => {
       siteNav.classList.toggle('is-open', open);

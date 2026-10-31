@@ -8,6 +8,10 @@
 media:
   input: images/blog
   output: /images/blog
+  # Only pictures can be uploaded, and file names are made web-safe
+  # ("My Photo 1.JPG" becomes "my-photo-1.jpg").
+  categories: [image]
+  rename: safe
 
 content:
   - name: posts

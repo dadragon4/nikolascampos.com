@@ -102,12 +102,21 @@
         const node = doc.querySelector(sel);
         if (node) frag.append(node.cloneNode(true));
       });
+      // A link to a regular page (not a post) shows that page's main content.
+      if (app.post && !frag.childNodes.length) {
+        const main = doc.querySelector('main');
+        if (main) [...main.children].forEach((n) => frag.append(n.cloneNode(true)));
+      }
       frag.querySelectorAll('.ticker, hr.rule').forEach((n) => n.remove());
       body.replaceChildren(frag);
       if (app.post) {
         const t = $('.post-title', body);
         const folder = new URL(app.src).pathname.includes('/blog/') ? 'Blog' : 'Writing';
         if (t) setTitle(rec, t.textContent.trim(), `Documents ▸ ${folder} ▸ ${t.textContent.trim()}`);
+        else {
+          const name = doc.title.replace(/\s+—\s+Nikolas Campos.*$/, '').trim() || 'Page';
+          setTitle(rec, name, name);
+        }
       }
       if (status) {
         const n = body.querySelectorAll('ul.index > li').length;
