@@ -8,6 +8,14 @@ All times are U.S. Eastern Time (EDT). Each time is when a change was saved, not
 
 ## Saturday, October 31, 2026
 
+### 3:55 PM — Domain locked down, safer email
+
+- **Contact page** now shows **hello@nikolascampos.com**, which forwards to Niko's inbox, so his personal email is no longer published.
+- **Behind the scenes:**
+  - nikolascampos.com is now verified to Niko's GitHub account, so no one else can claim it.
+  - A DMARC record stops other people from sending fake emails that look like they come from @nikolascampos.com.
+  - GitHub now blocks passwords or keys from ever being saved to the public repository (secret scanning and push protection).
+
 ### 3:34 PM — Site checkup and fixes
 
 Two separate reviews checked the whole site, including the behind-the-scenes setup. Fixes:
