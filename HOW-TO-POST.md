@@ -6,7 +6,7 @@ It goes live about a minute after you save it.
 
 ## The easy way: your admin editor
 
-Go to **nikolascampos.com/admin** (your private admin page, worth bookmarking). It has four buttons:
+Go to **nikolascampos.com/studio-0c19d5/** (your private admin page at a secret address; bookmark it, and don't share or post the address). It has four buttons:
 - **Edit the site:** your own editor (Sveltia CMS), signed in with a GitHub token.
 - **Backup editor:** Pages CMS, with a regular GitHub sign-in. Use it on a device where you haven't saved your token.
 - **Visitor stats:** your GoatCounter dashboard.
@@ -24,7 +24,7 @@ The token works like a password that only lets the editor change this website. Y
 4. **Repository access:** choose **Only select repositories** and pick **nikolascampos.com**.
 5. **Permissions:** under Repository permissions, set **Contents** to **Read and write**. Leave everything else alone.
 6. Tap **Generate token** and **copy** it. GitHub only shows it once.
-7. Go to **nikolascampos.com/admin**, tap **Edit the site**, then **Sign In Using Access Token**, and paste it.
+7. Go to **nikolascampos.com/studio-0c19d5/**, tap **Edit the site**, then **Sign In Using Access Token**, and paste it.
 
 Keep the token private, like a password. Don't paste it anywhere else, don't text or email it, and only sign in on your own devices. If a device is lost, or you think someone saw the token, go back to **Fine-grained tokens** on GitHub, delete it, and make a new one. GitHub won't let the token be saved into the site's files by accident (push protection is on).
 

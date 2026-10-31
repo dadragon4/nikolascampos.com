@@ -18,9 +18,9 @@ defaults:
       path: "404.html"
     values:
       sitemap: false
-  # Private shortcut to the site editor (Pages CMS)
+  # Private admin area (secret address; not linked anywhere)
   - scope:
-      path: "admin"
+      path: "studio-0c19d5"
     values:
       sitemap: false
   # Hidden for now (Oct 31, 2026); remove this to list it again

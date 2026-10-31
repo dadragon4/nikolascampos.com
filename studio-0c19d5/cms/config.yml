@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://unpkg.com/@sveltia/cms@0.246.1/schema/sveltia-cms.json
 #
-# Settings for Sveltia CMS, the site's own editor at nikolascampos.com/admin/cms/.
+# Settings for Sveltia CMS, the site's own editor at nikolascampos.com/studio-0c19d5/cms/.
 # Sign in with a GitHub fine-grained token limited to this repository
 # (Contents: read and write). The token is saved only in that browser.
 # Saving makes a commit to main, so the site updates about a minute later.

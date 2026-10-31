@@ -8,6 +8,11 @@
 - **Hosting:** GitHub Pages builds the site from `main` with Jekyll (for the blog and sitemap) and serves it with HTTPS.
 - **Domain and DNS:** registered at Namecheap, using Namecheap's DNS. The A records point to GitHub, and `www` is a CNAME to `dadragon4.github.io`.
 - **Email:** Namecheap **email forwarding** is active (MX records `eforward1–5.registrar-servers.com`, plus an SPF TXT record). ⚠️ This only works while Namecheap runs the DNS, so it must be replaced before or during a move (see step 4).
+- **Other DNS records added Oct 31, 2026, which must be copied exactly in any move:**
+  - TXT `_github-pages-challenge-dadragon4`, the GitHub domain verification. If it's lost, the domain loses takeover protection.
+  - TXT `_dmarc` = `v=DMARC1; p=reject;`, the anti-spoofing email rule.
+  - The `hello@nikolascampos.com` forwarder (to Niko's Gmail). It's a Namecheap email-forwarding setting, so it has to be recreated in Cloudflare Email Routing.
+- **Admin area:** at a secret address (see CLAUDE.md), hidden but not password-protected. Its editors and stats have their own sign-ins.
 
 ## Why move
 
@@ -17,6 +22,27 @@
 - **Speed and control:** a global cache, custom redirects and headers, and preview links for every branch.
 
 **Reasons to stay put:** today's setup works, costs nothing, and has fewer moving parts. Moving only pays off once you want analytics, logins, or an admin.
+
+## Planned: a real login for the admin (Cloudflare Access)
+
+*Note from Oct 31, 2026: Niko wants this when the move happens.* Today the admin is only hidden at a secret address. Anyone with the address can open the menu page and the changelog, though not the editors or stats, which have their own sign-ins. Cloudflare Access would put a real sign-in screen in front of the whole admin folder: a one-time code sent to Niko's email, and nobody else can even load the page.
+
+**What it needs:** Level 1 below (Cloudflare running the DNS). A full move isn't required.
+
+**Steps, once Cloudflare runs the DNS:**
+1. In the Cloudflare dashboard, open **Zero Trust**. Choose a team name, and pick the **Free** plan (up to 50 users; Cloudflare may ask for a card, but it isn't charged).
+2. Go to **Access**, then **Applications**, then **Add an application**, and choose **Self-hosted**.
+3. **Application domain:** `www.nikolascampos.com`, with the admin folder's path (from CLAUDE.md) as the **path**. Add a second entry for the bare `nikolascampos.com` with the same path.
+4. **Policy:** Allow, with an include rule of **Emails** = Niko's email address. Session length: for example 1 month.
+5. **Login method:** "One-time PIN" (email code) is on by default. GitHub sign-in can be added under **Settings**, then **Authentication**.
+6. In the Cloudflare **DNS** settings, set the `www` and root records to **Proxied** (orange cloud), so Access can sit in front. GitHub Pages keeps hosting the site.
+7. Test it in a private window: the admin should ask for an email code, and the rest of the site should load normally.
+8. Optional, after it works: move the admin back to a simple address like `/admin`, since the login now protects it.
+
+**Things to watch:**
+- When the records are proxied, set Cloudflare **SSL/TLS** to **Full** (not Flexible), or the site can redirect in a loop.
+- The admin's Changelog page reads the changelog from GitHub, so it keeps working behind Access.
+- The Sveltia editor saves straight to GitHub from the browser, so it keeps working behind Access too.
 
 ## Two levels of moving
 
@@ -32,7 +58,7 @@
    - the MX and SPF records
    Set the GitHub records to "DNS only" (grey cloud) for now.
 3. **Prepare the build.** Add a `Gemfile` so Cloudflare can run Jekyll with the same plugins GitHub uses (`jekyll`, `jekyll-sitemap`, `kramdown`).
-4. **Replace email forwarding** with **Cloudflare Email Routing** (free). Recreate each forwarding address there (for example `hello@nikolascampos.com` → your inbox). Then send a test email.
+4. **Replace email forwarding** with **Cloudflare Email Routing** (free). Recreate each forwarding address there (today: `hello@nikolascampos.com` → Niko's Gmail). Then send a test email. Keep the `_dmarc` and `_github-pages-challenge-dadragon4` TXT records.
 5. **Switch nameservers at Namecheap:** Domain List → Manage → Nameservers → "Custom DNS", and enter the two Cloudflare nameservers. The switch usually takes minutes to a few hours. The site stays up on GitHub Pages meanwhile.
 6. **Create a Cloudflare Pages project** connected to the GitHub repo:
    - Build command: `bundle exec jekyll build`
@@ -65,4 +91,4 @@ The Cloudflare Pages, DNS, Web Analytics, Email Routing and Access (up to 50 use
 
 ## Suggested next step
 
-Start with **Level 1 (DNS only) plus Email Routing**. It's low risk, unlocks analytics and Access, and makes a later full move a small change.
+Start with **Level 1 (DNS only) plus Email Routing**, then add **Cloudflare Access for the admin** (see above). It's low risk, unlocks Access, and makes a later full move a small change. Analytics is already handled by GoatCounter.

@@ -1,6 +1,6 @@
 # Draft: An admin backend for nikolascampos.com
 
-*Status: started Oct 31, 2026. Step 1 (analytics, GoatCounter) is live: dashboard at dadragon4.goatcounter.com. Step 2 is done twice over: Pages CMS (`.pages.yml`) and, as the main editor, Sveltia CMS at /admin/cms/ with GitHub-token sign-in (`admin/cms/config.yml`). Everything else here is still an idea.*
+*Status: started Oct 31, 2026. Step 1 (analytics, GoatCounter) is live: dashboard at dadragon4.goatcounter.com. Step 2 is done twice over: Pages CMS (`.pages.yml`) and, as the main editor, Sveltia CMS at /studio-0c19d5/cms/ with GitHub-token sign-in (`studio-0c19d5/cms/config.yml`). The admin area moved from /admin to a secret address on Oct 31; a real login via Cloudflare Access is planned (see the Cloudflare plan). Everything else here is still an idea.*
 
 ## What it should do
 
