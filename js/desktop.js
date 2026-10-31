@@ -28,6 +28,8 @@
     film: '<svg viewBox="0 0 48 48"><rect x="4" y="9" width="40" height="30" rx="3" fill="#2b2b2b" stroke="#000"/><g fill="#ddd"><rect x="7" y="11" width="4" height="2.5"/><rect x="14" y="11" width="4" height="2.5"/><rect x="21" y="11" width="4" height="2.5"/><rect x="28" y="11" width="4" height="2.5"/><rect x="35" y="11" width="4" height="2.5"/><rect x="7" y="34.5" width="4" height="2.5"/><rect x="14" y="34.5" width="4" height="2.5"/><rect x="21" y="34.5" width="4" height="2.5"/><rect x="28" y="34.5" width="4" height="2.5"/><rect x="35" y="34.5" width="4" height="2.5"/></g><rect x="8" y="16" width="14" height="16" fill="url(#g-sky)"/><rect x="26" y="16" width="14" height="16" fill="url(#g-sky)"/></svg>',
     camera: '<svg viewBox="0 0 48 48"><rect x="15" y="9" width="14" height="7" rx="2" fill="#555"/><rect x="4" y="14" width="40" height="26" rx="5" fill="url(#g-metal)" stroke="#3a3f45"/><circle cx="24" cy="27" r="9.5" fill="#222"/><circle cx="24" cy="27" r="6.5" fill="url(#g-lens)"/><circle cx="21.6" cy="24.6" r="1.8" fill="#fff" opacity=".85"/><rect x="35" y="17" width="5" height="3" rx="1" fill="#ffd34d"/></svg>',
     note: '<svg viewBox="0 0 48 48"><rect x="9" y="6" width="30" height="37" rx="2" fill="#fff" stroke="#7a8aa0"/><rect x="9" y="6" width="30" height="6" rx="2" fill="#6aa7e0"/><path d="M13 18h22M13 23h22M13 28h22M13 33h22M13 38h14" stroke="#9cc0e6"/></svg>',
+    briefcase: '<svg viewBox="0 0 48 48"><path d="M18 13v-3a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3" fill="none" stroke="#5a3b1c" stroke-width="3"/><rect x="5" y="13" width="38" height="27" rx="4" fill="url(#g-fold-b)" stroke="#7a5214"/><rect x="6" y="14" width="36" height="9" rx="3" fill="#fff" opacity=".25"/><path d="M5 25h38" stroke="#7a5214"/><rect x="21" y="22" width="6" height="6" rx="1" fill="#fff2b0" stroke="#7a5214"/></svg>',
+    mail: '<svg viewBox="0 0 48 48"><rect x="5" y="11" width="38" height="27" rx="3" fill="url(#g-metal)" stroke="#5b6672"/><path d="M6 37l13-12M42 37L29 25" stroke="#9aa3ad"/><path d="M6 13l18 14 18-14" fill="none" stroke="#3f8fd2" stroke-width="2.5" stroke-linejoin="round"/></svg>',
     book: '<svg viewBox="0 0 48 48"><path d="M10 6h26a3 3 0 0 1 3 3v34H14a4 4 0 0 1-4-4z" fill="url(#g-book)" stroke="#1d2a1a"/><path d="M14 35h25v8H14a4 4 0 0 1 0-8z" fill="#faf9f6" stroke="#1d2a1a"/><rect x="17" y="12" width="16" height="3" rx="1" fill="#e9dfc4"/><rect x="17" y="18" width="11" height="2" rx="1" fill="#e9dfc4" opacity=".7"/></svg>',
   };
   const GLYPH = {
@@ -42,6 +44,8 @@
     { id: 'blog', title: 'Blog', icon: 'folder', src: 'blog.html', pick: ['#blog'], size: [600, 440], crumb: 'Documents ▸ Blog' },
     { id: 'music', title: 'Music', icon: 'music', src: 'music.html', pick: ['#music'], size: [600, 560], crumb: 'Music' },
     { id: 'film', title: 'Film', icon: 'film', src: 'film.html', pick: ['#film'], size: [680, 580], crumb: 'Videos ▸ Film' },
+    { id: 'services', title: 'Services', icon: 'briefcase', src: 'services.html', pick: ['#services'], size: [560, 480], crumb: 'Documents ▸ Services' },
+    { id: 'contact', title: 'Contact', icon: 'mail', src: 'contact.html', pick: ['#contact'], size: [460, 320], crumb: 'Contact' },
     { id: 'photos', title: 'Photography', icon: 'camera', src: 'photography.html', pick: ['#photography'], size: [520, 320], crumb: 'Pictures ▸ Photography', hidden: true }, // hidden for now
     { id: 'site', title: 'About This Site', icon: 'note', template: 'desktop-site', size: [560, 440], crumb: 'Documents ▸ About This Site' },
     { id: 'now', title: 'Now.txt', icon: 'note', src: 'index.html', size: [420, 280], notepad: true },
@@ -278,6 +282,7 @@
       const a = e.target.closest('a[href]');
       if (!a) return;
       const url = new URL(a.href);
+      if (!/^https?:$/.test(url.protocol)) return; // mailto: and similar open normally
       if (url.origin !== location.origin) { a.target = '_blank'; a.rel = 'noopener'; return; }
       if (!/(\.html|\/)$/.test(url.pathname)) return;
       e.preventDefault();
@@ -331,7 +336,7 @@
     return b;
   };
   const left = $('#sm-left');
-  ['about', 'site', 'now', 'music', 'film', 'writing', 'blog'].forEach((id) => left.append(smItem(appById(id))));
+  ['about', 'site', 'now', 'music', 'film', 'writing', 'blog', 'services', 'contact'].forEach((id) => left.append(smItem(appById(id))));
   left.append(Object.assign(document.createElement('hr'), { className: 'sm-sep' }), smItem(appById('classic')));
 
   const right = $('#sm-right');

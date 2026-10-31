@@ -13,7 +13,10 @@ All times are U.S. Eastern Time (EDT). Each time is when a change was saved, not
 Two separate reviews checked the whole site, including the behind-the-scenes setup. Fixes:
 
 - **Phone menu:** the full list of links no longer flashes for a moment each time a new page opens.
-- **Desktop view:** a link to a regular page (like Services or Contact) now opens that page in a window instead of an empty one.
+- **Desktop view:**
+  - New **Services** (briefcase) and **Contact** (envelope) icons, also in the Start menu.
+  - A link to a regular page now opens that page in a window instead of an empty one.
+- **Home page welcome line:** now reads "I make stories, films, and music, and this is where it all lives."
 - **Admin uploads:** only pictures can be uploaded, and file names are cleaned up automatically (for example, "My Photo 1.JPG" becomes "my-photo-1.jpg").
 - **Blog:** if a post's one-line summary is left empty, Google and link previews use the start of the post instead. Post dates use Eastern time.
 - **Behind the scenes:**
