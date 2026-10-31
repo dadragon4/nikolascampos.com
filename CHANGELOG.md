@@ -8,6 +8,10 @@ All times are U.S. Eastern Time (EDT). Each time is when a change was saved, not
 
 ## Saturday, October 31, 2026
 
+### 5:26 PM — Visitor counts are on
+
+- **The site now counts visits** with GoatCounter: how many people visit, which pages they read, and where they came from. It uses no cookies and collects no personal information, so there's no cookie banner. Niko's dashboard is at dadragon4.goatcounter.com.
+
 ### 3:55 PM — Domain locked down, safer email
 
 - **Contact page** now shows **hello@nikolascampos.com**, which forwards to Niko's inbox, so his personal email is no longer published.

@@ -38,7 +38,7 @@ python3 -m http.server 8000
 
 ## Analytics
 
-GoatCounter (privacy-friendly: no cookies, no cookie banner). `js/site.js` and `js/desktop.js` each have `const GOATCOUNTER = ''`. It is **off until that's set** to the site's GoatCounter code (the `xxx` in `xxx.goatcounter.com`), the same in both files. It only loads on `*nikolascampos.com`, so local previews aren't counted. Niko has to create the GoatCounter account himself.
+GoatCounter (privacy-friendly: no cookies, no cookie banner), **on since Oct 31, 2026**. `js/site.js` and `js/desktop.js` each have `const GOATCOUNTER = 'dadragon4'` (the dashboard is https://dadragon4.goatcounter.com, Niko's account). Keep it the same in both files; an empty string turns counting off. It only loads on `*nikolascampos.com`, so local previews aren't counted. GoatCounter's API needs a secret key, which must never go in the site's public code (see `plans/admin-backend.md`).
 
 ## Admin (Pages CMS)
 

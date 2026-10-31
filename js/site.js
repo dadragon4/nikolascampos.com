@@ -8,7 +8,7 @@
   // data, no cookie banner needed. Off until GOATCOUNTER is set to the site's
   // GoatCounter code (the "xxx" in xxx.goatcounter.com). Keep the same code in
   // js/site.js and js/desktop.js. Visits while previewing locally aren't counted.
-  const GOATCOUNTER = '';
+  const GOATCOUNTER = 'dadragon4';
   if (GOATCOUNTER && location.hostname.endsWith('nikolascampos.com')) {
     const counter = document.createElement('script');
     counter.async = true;

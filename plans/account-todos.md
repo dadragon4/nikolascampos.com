@@ -1,6 +1,6 @@
 # Website to-dos that need your accounts
 
-*Oct 31, 2026. Done: secret scanning, domain verification, DMARC, hello@ forwarder. Left: GoatCounter. Originally four, a few minutes each. When you finish one, tell Claude in the nikolascampos.com project and it will check it.*
+*Oct 31, 2026. All done: secret scanning, domain verification, DMARC, hello@ forwarder, GoatCounter (dadragon4). Originally four, a few minutes each. When you finish one, tell Claude in the nikolascampos.com project and it will check it.*
 
 ---
 
@@ -77,5 +77,5 @@
 - [x] 1. Domain verified on GitHub (TXT record left in place)
 - [x] 2. DMARC record added
 - [x] 3. hello@ forwarder works, and Claude has updated the Contact page
-- [ ] 4. GoatCounter account made, and Claude has turned on analytics
+- [x] 4. GoatCounter account made, and Claude has turned on analytics
 - [x] Secret scanning and push protection (done Oct 31)
