@@ -1,1 +1,22 @@
+# Mac system files
 .DS_Store
+
+# Private notes and drafts: kept on this Mac only, never pushed to the
+# public GitHub repo. (Jekyll's exclude list in _config.yml also keeps them
+# off the website.)
+plans/
+
+# Claude Code: separate working copies and personal settings
+.claude/worktrees/
+.claude/settings.local.json
+
+# Secrets must never be committed (GitHub push protection also blocks them)
+.env
+.env.*
+*.pem
+*.key
+
+# Jekyll build output, if the site is ever built locally
+_site/
+.jekyll-cache/
+.sass-cache/

@@ -8,6 +8,10 @@ All times are U.S. Eastern Time (EDT). Each time is when a change was saved, not
 
 ## Saturday, October 31, 2026
 
+### 6:01 PM — Private notes stay private
+
+- **Behind the scenes:** the site's planning notes (drafts for the admin, the Cloudflare move, to-dos and ideas) no longer go to the public GitHub copy of the site. They stay on Niko's Mac. A new ignore list also keeps personal settings, passwords or keys, and build leftovers out of the public copy.
+
 ### 5:58 PM — Admin moved to a private address
 
 - **The admin page moved** from /admin to a private address that only Niko has, and /admin now shows "page not found". The editors and stats still need their own sign-ins.

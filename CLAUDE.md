@@ -14,6 +14,8 @@ To preview, use the `site` config in `.claude/launch.json`. It runs `.claude/ser
 python3 -m http.server 8000
 ```
 
+**What's in the public repo:** the repo is public, so every tracked file can be read on GitHub, even ones the website doesn't publish. `plans/` (drafts: admin, Cloudflare move, to-dos, ideas) is **local-only since Oct 31, 2026**: it's in `.gitignore` and untracked, so it lives only on Niko's Mac. Sessions in a fresh worktree or in the cloud won't have it. Earlier versions are still in git history. `.gitignore` also covers `.claude/worktrees/`, `.claude/settings.local.json`, secrets (`.env*`, `*.pem`, `*.key`) and Jekyll build output. `CHANGELOG.md` must stay tracked (the admin Changelog page reads it from GitHub), and so must `HOW-TO-POST.md` (Niko reads it on github.com), `CLAUDE.md` (new sessions need it), `.claude/launch.json` and `serve.py` (the preview). Drafts saved from the editors go into `_drafts/` in the repo, so they're readable on GitHub too (not on the site).
+
 ## Structure
 
 - Every page, including the posts in `writing/`, uses the same skeleton: `a.skip-link` (targets `#main`) → `.wrap` → `header.site` (name, `a.view-switch`, tagline, nav) → `<main id="main">` (optional welcome/ticker, `hr.rule`, content) → `footer.site`. Pages in `writing/` use `../` for all site links, the stylesheet, and the script.
@@ -52,7 +54,7 @@ GoatCounter (privacy-friendly: no cookies, no cookie banner), **on since Oct 31,
   - Validate changes against the schema at `https://unpkg.com/@sveltia/cms@<version>/schema/sveltia-cms.json`.
 - **Pages CMS** (backup): `.pages.yml`; Niko signs in with GitHub. Uploads are limited to `categories: [image]` and renamed with `rename: safe`.
 - Both editors share the same fields: `title`, `date` (posts only), `excerpt`, `verse`, and `body` (the Markdown below the front matter). Keep `studio-0c19d5/cms/config.yml`, `.pages.yml` and `HOW-TO-POST.md` in sync, or an editor may drop a field it doesn't know. Saving in either commits to `main`, which publishes. Access is protected by GitHub (only Niko's account or token can write to the repo), not by the pages.
-- Plans for more (portfolio entries) are in `plans/admin-backend.md`.
+- Plans for more (portfolio entries) are in `plans/admin-backend.md` (local-only).
 
 ## Blog (Jekyll)
 
