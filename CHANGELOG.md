@@ -8,6 +8,19 @@ All times are U.S. Eastern Time (EDT). Each time is when a change was saved, not
 
 ## Saturday, October 31, 2026
 
+### 3:34 PM — Site checkup and fixes
+
+Two separate reviews checked the whole site, including the behind-the-scenes setup. Fixes:
+
+- **Phone menu:** the full list of links no longer flashes for a moment each time a new page opens.
+- **Desktop view:** a link to a regular page (like Services or Contact) now opens that page in a window instead of an empty one.
+- **Admin uploads:** only pictures can be uploaded, and file names are cleaned up automatically (for example, "My Photo 1.JPG" becomes "my-photo-1.jpg").
+- **Blog:** if a post's one-line summary is left empty, Google and link previews use the start of the post instead. Post dates use Eastern time.
+- **Behind the scenes:**
+  - The local preview server no longer shows the project's hidden files to other devices on the Wi-Fi.
+  - The automatic test build uses exact, locked versions of its tools.
+  - The Desktop view's script always loads fresh after an update.
+
 ### 3:17 PM — Menu button on phones
 
 - **On phones, the menu now folds away** behind a **Menu** button next to the name. Tap it to show the links as a list that's easy to tap, and tap **Close** to hide them. On computers, the menu looks the same as before.
