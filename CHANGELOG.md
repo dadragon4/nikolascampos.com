@@ -8,6 +8,16 @@ All times are U.S. Eastern Time (EDT). Each time is when a change was saved, not
 
 ## Saturday, October 31, 2026
 
+### 3:04 PM — Services and Contact pages, a footer site map, and the start of an admin
+
+- **New menu:** Home · Film · Music · Services · About · Contact.
+- **New Services page (work in progress):** the kinds of work Niko takes on (video, music and audio, live streaming and A/V, websites), with details coming soon.
+- **New Contact page** with Niko's email and links to YouTube and Spotify.
+- **Site map in the footer** of every page: Site (Home, About, Contact), Work (Film, Music, Services), and Elsewhere (Desktop view, YouTube, Spotify).
+- **Photography is hidden for now.** It's out of the menu, the Desktop view and Google until there are photos to show.
+- **Visitor counts, ready to switch on.** The site is set up for GoatCounter, a free counter that uses no cookies and collects no personal data. It starts counting once Niko creates an account.
+- **Admin editor:** blog posts, drafts and pictures can now be written in a friendly editor (Pages CMS) after signing in with GitHub, instead of editing files by hand. *HOW-TO-POST.md* explains how.
+
 ### 10:56 AM — New professional bios, and a personal Desktop About
 
 - **About page:** it's now Niko's full professional bio covering his work as an IT Support Specialist at Valencia College, his degree from UCF in Media Production and Management, more than ten years of making music, and films like *Waiting*.

@@ -4,6 +4,19 @@
   const isLocal = ['localhost', '127.0.0.1', ''].includes(location.hostname);
   const warn = (...args) => { if (isLocal) console.warn('[site]', ...args); };
 
+  // Privacy-friendly visit counts with GoatCounter: no cookies, no personal
+  // data, no cookie banner needed. Off until GOATCOUNTER is set to the site's
+  // GoatCounter code (the "xxx" in xxx.goatcounter.com). Keep the same code in
+  // js/site.js and js/desktop.js. Visits while previewing locally aren't counted.
+  const GOATCOUNTER = '';
+  if (GOATCOUNTER && location.hostname.endsWith('nikolascampos.com')) {
+    const counter = document.createElement('script');
+    counter.async = true;
+    counter.src = 'https://gc.zgo.at/count.js';
+    counter.dataset.goatcounter = `https://${GOATCOUNTER}.goatcounter.com/count`;
+    document.head.append(counter);
+  }
+
   // Portfolio menu (<details class="menu">): close on outside click, on
   // Escape, and when keyboard focus leaves it.
   document.addEventListener('click', (e) => {

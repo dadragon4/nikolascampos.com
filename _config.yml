@@ -18,6 +18,11 @@ defaults:
       path: "404.html"
     values:
       sitemap: false
+  # Hidden for now (Oct 31, 2026); remove this to list it again
+  - scope:
+      path: "photography.html"
+    values:
+      sitemap: false
 
 permalink: /blog/:title.html
 

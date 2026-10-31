@@ -1,0 +1,60 @@
+# Settings for Pages CMS (https://app.pagescms.org), the site's admin.
+# Sign in there with GitHub to write blog posts and upload images in a
+# friendly editor. Saving makes a commit to main, so the site updates about a
+# minute later, like any other push. Jekyll ignores this file (it starts with
+# a dot), so it isn't published.
+
+# Uploaded images: stored in images/blog/, linked as /images/blog/name.jpg
+media:
+  input: images/blog
+  output: /images/blog
+
+content:
+  - name: posts
+    label: Blog posts
+    type: collection
+    path: _posts
+    # Jekyll takes the post's date from the file name: 2026-10-31-my-post.md
+    filename: "{year}-{month}-{day}-{primary}.md"
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: excerpt
+        label: Excerpt (one-line summary for the Blog list and Google)
+        type: text
+      - name: verse
+        label: Poem (centers each line)
+        type: boolean
+      # "body" is the post itself, saved below the front matter as Markdown
+      - name: body
+        label: Post
+        type: rich-text
+        options:
+          format: markdown
+
+  - name: drafts
+    label: Drafts (not published)
+    type: collection
+    path: _drafts
+    # Drafts have no date. To publish one, move it to Blog posts.
+    filename: "{primary}.md"
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: excerpt
+        label: Excerpt
+        type: text
+      - name: verse
+        label: Poem (centers each line)
+        type: boolean
+      - name: body
+        label: Post
+        type: rich-text
+        options:
+          format: markdown

@@ -8,6 +8,19 @@
   const coarse = matchMedia('(pointer: coarse)');
   const isSmall = () => innerWidth < 640;
 
+  // Privacy-friendly visit counts with GoatCounter: no cookies, no personal
+  // data, no cookie banner needed. Off until GOATCOUNTER is set to the site's
+  // GoatCounter code (the "xxx" in xxx.goatcounter.com). Keep the same code in
+  // js/site.js and js/desktop.js. Visits while previewing locally aren't counted.
+  const GOATCOUNTER = '';
+  if (GOATCOUNTER && location.hostname.endsWith('nikolascampos.com')) {
+    const counter = document.createElement('script');
+    counter.async = true;
+    counter.src = 'https://gc.zgo.at/count.js';
+    counter.dataset.goatcounter = `https://${GOATCOUNTER}.goatcounter.com/count`;
+    document.head.append(counter);
+  }
+
   const ICONS = {
     user: '<svg viewBox="0 0 48 48"><rect x="6" y="6" width="36" height="36" rx="6" fill="url(#g-user)" stroke="#0d3f73"/><circle cx="24" cy="20" r="7" fill="#fff"/><path d="M11 41c2-8 7-11 13-11s11 3 13 11z" fill="#fff"/><rect x="7" y="7" width="34" height="14" rx="5" fill="#fff" opacity=".25"/></svg>',
     folder: '<svg viewBox="0 0 48 48"><path d="M4 12a3 3 0 0 1 3-3h11l4 4h19a3 3 0 0 1 3 3v22a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z" fill="url(#g-fold-b)" stroke="#a87a12"/><rect x="10" y="12" width="27" height="22" fill="#fff" stroke="#c9c9c9"/><path d="M14 18h19M14 22h19M14 26h13" stroke="#9cc0e6"/><path d="M3 20h42l-3 20a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2z" fill="url(#g-fold)" stroke="#b8860b"/></svg>',
@@ -29,7 +42,7 @@
     { id: 'blog', title: 'Blog', icon: 'folder', src: 'blog.html', pick: ['#blog'], size: [600, 440], crumb: 'Documents ▸ Blog' },
     { id: 'music', title: 'Music', icon: 'music', src: 'music.html', pick: ['#music'], size: [600, 560], crumb: 'Music' },
     { id: 'film', title: 'Film', icon: 'film', src: 'film.html', pick: ['#film'], size: [680, 580], crumb: 'Videos ▸ Film' },
-    { id: 'photos', title: 'Photography', icon: 'camera', src: 'photography.html', pick: ['#photography'], size: [520, 320], crumb: 'Pictures ▸ Photography' },
+    { id: 'photos', title: 'Photography', icon: 'camera', src: 'photography.html', pick: ['#photography'], size: [520, 320], crumb: 'Pictures ▸ Photography', hidden: true }, // hidden for now
     { id: 'site', title: 'About This Site', icon: 'note', template: 'desktop-site', size: [560, 440], crumb: 'Documents ▸ About This Site' },
     { id: 'now', title: 'Now.txt', icon: 'note', src: 'index.html', size: [420, 280], notepad: true },
     { id: 'classic', title: 'Classic Site', icon: 'book', href: 'index.html' },
@@ -275,7 +288,7 @@
 
   // ---- Desktop icons -------------------------------------------------------
   const iconList = $('#icons');
-  APPS.forEach((app) => {
+  APPS.filter((app) => !app.hidden).forEach((app) => {
     const li = document.createElement('li');
     const btn = document.createElement('button');
     btn.type = 'button';
@@ -309,12 +322,12 @@
     return b;
   };
   const left = $('#sm-left');
-  ['about', 'site', 'now', 'music', 'film', 'writing', 'blog', 'photos'].forEach((id) => left.append(smItem(appById(id))));
+  ['about', 'site', 'now', 'music', 'film', 'writing', 'blog'].forEach((id) => left.append(smItem(appById(id))));
   left.append(Object.assign(document.createElement('hr'), { className: 'sm-sep' }), smItem(appById('classic')));
 
   const right = $('#sm-right');
   right.innerHTML = `<span class="sm-user" aria-hidden="true">${ICONS.user}</span>`;
-  [['Niko', 'about'], ['Documents', 'writing'], ['Music', 'music'], ['Videos', 'film'], ['Pictures', 'photos']].forEach(([label, id]) => {
+  [['Niko', 'about'], ['Documents', 'writing'], ['Music', 'music'], ['Videos', 'film']].forEach(([label, id]) => {
     const b = document.createElement('button');
     b.type = 'button';
     b.className = 'sm-link';

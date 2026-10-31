@@ -1,6 +1,6 @@
 # Draft: An admin backend for nikolascampos.com
 
-*Status: idea draft, Oct 31, 2026. Nothing here is built.*
+*Status: started Oct 31, 2026. Step 1 (analytics, GoatCounter) is wired up and waiting for an account. Step 2 (Pages CMS for blog posts, drafts and images) is set up in `.pages.yml`. Everything else here is still an idea.*
 
 ## What it should do
 

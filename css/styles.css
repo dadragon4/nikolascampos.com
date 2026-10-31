@@ -436,12 +436,45 @@ footer.site {
     color: var(--ink-soft);
 }
 
+/* Footer site map: three short columns of links */
+footer.site .sitemap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+footer.site .sitemap h2 {
+    margin: 0 0 0.6rem;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+}
+footer.site .sitemap ul { list-style: none; margin: 0; padding: 0; }
+footer.site .sitemap li { margin: 0.3rem 0; }
+footer.site .sitemap a { color: var(--ink); text-decoration: none; }
+footer.site .sitemap a:hover { text-decoration: underline; }
+footer.site p { margin: 0; }
+
+/* Services list (services.html) */
+ul.services { list-style: none; margin: 2rem 0; padding: 0; }
+ul.services li { padding: 1.1rem 0; border-top: 1px solid var(--rule); }
+ul.services li:last-child { border-bottom: 1px solid var(--rule); }
+ul.services h3 { margin: 0 0 0.3rem; font-size: 1.05rem; }
+ul.services p { margin: 0; color: var(--ink-soft); }
+
+/* Contact page email link */
+p.contact-email { font-size: 1.25rem; margin: 1.5rem 0; overflow-wrap: anywhere; }
+
 @media (max-width: 480px) {
     body { font-size: 106.25%; }
     .wrap { padding: 3rem 1.25rem 4rem; }
     ul.index li { grid-template-columns: 1fr; gap: 0.35rem; }
     ul.index time { padding-top: 0; }
     hr.rule { margin-bottom: 2.25rem; }
+    footer.site .sitemap { gap: 1rem; }
     /* Six nav links: tighter gaps keep them on one line on most phones */
     nav.site { column-gap: 0.7rem; }
     /* Keep the name on one line: switch moves under the tagline */
@@ -457,7 +490,7 @@ footer.site {
 
 /* Printing: just the content */
 @media print {
-    .skip-link, .view-switch, nav.site, .ticker, .latest-more { display: none; }
+    .skip-link, .view-switch, nav.site, .sitemap, .ticker, .latest-more { display: none; }
     body { background: #fff; color: #000; }
     .wrap { max-width: none; padding: 0; }
     a { color: inherit; }

@@ -4,6 +4,16 @@ Every blog post is one plain text file in the `_posts` folder. When you add one,
 
 It goes live about a minute after you save it.
 
+## The easy way: the admin editor (Pages CMS)
+
+1. Go to **app.pagescms.org** and sign in with GitHub. The first time, allow it access to the `nikolascampos.com` repository.
+2. Open **Blog posts** and click **Add an entry**. Fill in the title, an optional one-line excerpt, and the post itself. The editor has buttons for bold, italics, headings, links and pictures. Check **Poem** for a poem.
+3. Click **Save**. The file is named and dated for you, and the post is live about a minute later.
+
+**Drafts** works the same way, but nothing there is published. To publish a draft, copy its text into a new Blog post and delete the draft.
+
+The rest of this guide is the by-hand way, writing the file on github.com. Both make the same kind of file.
+
 ## 1. Name the file
 
 ```
