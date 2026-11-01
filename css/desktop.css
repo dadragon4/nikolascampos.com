@@ -224,8 +224,20 @@ body.dragging iframe { pointer-events: none; }
 /* Services list (cloned from services.html) */
 .win-body ul.services { list-style: none; margin: 12px 0; padding: 0; }
 .win-body ul.services > li { padding: 10px 0; border-bottom: 1px solid #eef2f6; }
-.win-body ul.services h3 { margin: 0 0 2px; font-size: 1em; }
+.win-body ul.services h4 { margin: 0 0 2px; font-size: 1em; }
 .win-body ul.services p { margin: 0; }
+.win-body .services-heading { margin: 18px 0 0; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #5a6b7d; }
+.win-body ul.services.rates > li { display: grid; grid-template-columns: 1fr auto; column-gap: 12px; }
+.win-body ul.services.rates > li > p:not(.price) { grid-column: 1 / -1; color: #555; }
+.win-body ul.services.rates p.price { grid-row: 1; grid-column: 2; font-weight: 700; white-space: nowrap; }
+.win-body ul.tools { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 14px; padding: 0; }
+.win-body ul.tools li { padding: 3px 8px; border: 1px solid #d5dde6; border-radius: 3px; background: #f6f9fc; font-size: 13px; }
+.win-body .post-photos { display: grid; gap: 14px; margin-top: 1.5em; }
+.win-body .post-photos figure { margin: 0; }
+.win-body .post-photos img { margin: 0 auto; }
+.win-body .post-photos figcaption { margin-top: 4px; font-size: 12px; color: #555; text-align: center; }
+/* Apps switched off in the admin (pages.json) */
+#icons li[hidden], .sm-item[hidden] { display: none; }
 .win-body time { font-size: 12px; color: #6d6d6d; padding-top: 2px; }
 .win-body .entry > a { font-size: 15px; }
 .win-body .excerpt { display: block; margin: 6px 0 0; color: #555; font-size: 13px; }

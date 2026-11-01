@@ -57,6 +57,16 @@ collections:
       - { name: date, label: Date, widget: datetime, type: date, default: "{{now}}" }
       - { name: excerpt, label: "Excerpt (one-line summary for the Blog list and Google)", widget: text, required: false }
       - { name: verse, label: "Poem (centers each line)", widget: boolean, required: false, default: false }
+      - { name: image, label: "Cover image (shown at the top and when the post is shared)", widget: image, required: false }
+      - { name: image_alt, label: "Cover image description (for screen readers)", widget: string, required: false }
+      - name: photos
+        label: "Photos (shown below the post)"
+        label_singular: Photo
+        widget: list
+        required: false
+        fields:
+          - { name: src, label: Photo, widget: image }
+          - { name: caption, label: "Caption (optional)", widget: string, required: false }
       - { name: body, label: Post, widget: markdown }
 
   - name: drafts
@@ -70,4 +80,34 @@ collections:
       - { name: title, label: Title, widget: string }
       - { name: excerpt, label: Excerpt, widget: text, required: false }
       - { name: verse, label: "Poem (centers each line)", widget: boolean, required: false, default: false }
+      - { name: image, label: "Cover image", widget: image, required: false }
+      - { name: image_alt, label: "Cover image description", widget: string, required: false }
+      - name: photos
+        label: "Photos (shown below the post)"
+        label_singular: Photo
+        widget: list
+        required: false
+        fields:
+          - { name: src, label: Photo, widget: image }
+          - { name: caption, label: "Caption (optional)", widget: string, required: false }
       - { name: body, label: Post, widget: markdown }
+
+  # Show or hide pages: switch a page off to take it out of the menu, the
+  # footer, the home page and the Desktop view (see pages.json and js/site.js).
+  - name: settings
+    label: Site settings
+    description: "Show or hide pages: switched off = hidden from the menu, footer, home page and Desktop view, and from Google. The page's address still works for anyone with the link. Changes show about a minute after saving."
+    files:
+      - name: pages
+        label: Show or hide pages
+        file: pages.json
+        format: json
+        fields:
+          - { name: film, label: Film, widget: boolean, default: true }
+          - { name: photography, label: Photography, widget: boolean, default: true }
+          - { name: music, label: Music, widget: boolean, default: true }
+          - { name: services, label: Services, widget: boolean, default: true }
+          - { name: about, label: About, widget: boolean, default: true }
+          - { name: contact, label: Contact, widget: boolean, default: true }
+          - { name: writing, label: "Writing (Desktop view only)", widget: boolean, default: true }
+          - { name: blog, label: "Blog (Desktop view only)", widget: boolean, default: true }

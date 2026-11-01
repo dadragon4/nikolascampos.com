@@ -1,0 +1,10 @@
+{
+  "film": true,
+  "photography": false,
+  "music": true,
+  "services": true,
+  "about": true,
+  "contact": true,
+  "writing": true,
+  "blog": true
+}

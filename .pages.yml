@@ -39,6 +39,23 @@ content:
       - name: verse
         label: Poem (centers each line)
         type: boolean
+      - name: image
+        label: Cover image (shown at the top and when the post is shared)
+        type: image
+      - name: image_alt
+        label: Cover image description (for screen readers)
+        type: string
+      - name: photos
+        label: Photos (shown below the post)
+        type: object
+        list: true
+        fields:
+          - name: src
+            label: Photo
+            type: image
+          - name: caption
+            label: Caption (optional)
+            type: string
       # "body" is the post itself, saved below the front matter as Markdown
       - name: body
         label: Post
@@ -64,8 +81,41 @@ content:
       - name: verse
         label: Poem (centers each line)
         type: boolean
+      - name: image
+        label: Cover image (shown at the top and when the post is shared)
+        type: image
+      - name: image_alt
+        label: Cover image description (for screen readers)
+        type: string
+      - name: photos
+        label: Photos (shown below the post)
+        type: object
+        list: true
+        fields:
+          - name: src
+            label: Photo
+            type: image
+          - name: caption
+            label: Caption (optional)
+            type: string
       - name: body
         label: Post
         type: rich-text
         options:
           format: markdown
+
+  # Show or hide pages (true = shown). Same as Sveltia's "Show or hide pages".
+  - name: pages
+    label: Show or hide pages
+    type: file
+    path: pages.json
+    format: json
+    fields:
+      - { name: film, label: Film, type: boolean }
+      - { name: photography, label: Photography, type: boolean }
+      - { name: music, label: Music, type: boolean }
+      - { name: services, label: Services, type: boolean }
+      - { name: about, label: About, type: boolean }
+      - { name: contact, label: Contact, type: boolean }
+      - { name: writing, label: Writing (Desktop view only), type: boolean }
+      - { name: blog, label: Blog (Desktop view only), type: boolean }
