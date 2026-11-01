@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#161614" media="(prefers-color-scheme: dark)">
   {%- assign summary = page.excerpt | strip_html | normalize_whitespace | strip -%}
   {%- if summary == "" -%}{%- assign summary = content | strip_html | normalize_whitespace | strip -%}{%- endif -%}
-  {%- assign summary = summary | truncate: 160 | escape %}
+  {%- assign summary_text = summary | truncate: 160 -%}
+  {%- assign summary = summary_text | escape %}
   <title>{{ page.title | escape }} — Nikolas Campos</title>
   <meta name="description" content="{{ summary }}">
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
@@ -23,9 +25,25 @@
 {%- else %}
   <meta name="twitter:card" content="summary">
 {%- endif %}
+  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": {{ page.title | jsonify }},
+    "description": {{ summary_text | jsonify }},
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    {%- if page.image %}
+    "image": "{{ site.url }}{{ page.image | relative_url }}",
+    {%- endif %}
+    "url": "{{ site.url }}{{ page.url }}",
+    "mainEntityOfPage": "{{ site.url }}{{ page.url }}",
+    "author": { "@type": "Person", "name": "Nikolas Campos", "url": "https://www.nikolascampos.com/" }
+  }
+  </script>
   <script>document.documentElement.classList.add('js');addEventListener('load',()=>{if(!document.documentElement.classList.contains('nav-ready'))document.documentElement.classList.remove('js');});</script>
   <link rel="stylesheet" href="../css/styles.css?v=17">
-  <script src="../js/site.js?v=5" defer onerror="document.documentElement.classList.remove('js')"></script>
+  <script src="../js/site.js?v=6" defer onerror="document.documentElement.classList.remove('js')"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>

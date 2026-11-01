@@ -92,6 +92,41 @@
     })
     .catch((err) => warn('Could not load pages.json; keeping links as they are', err));
 
+  // Search engine details for films and albums (schema.org VideoObject and
+  // MusicAlbum), built from the Film and Music lists so new entries are
+  // covered automatically. Google reads structured data added by scripts.
+  const me = { '@type': 'Person', name: 'Nikolas Campos', url: 'https://www.nikolascampos.com/' };
+  const works = [];
+  document.querySelectorAll('#film ul.index > li, #music ul.index > li').forEach((li) => {
+    const date = li.querySelector('time[datetime]')?.getAttribute('datetime');
+    const frame = li.querySelector('.entry iframe[src]');
+    if (!date || !frame) return;
+    const description = li.querySelector('.excerpt')?.textContent.trim();
+    const src = frame.getAttribute('src');
+    const name = (frame.title || '').replace(/^(Watch|Listen to)\s+/, '').replace(/\s+on (YouTube|Spotify)$/, '');
+    const yt = src.match(/youtube(?:-nocookie)?\.com\/embed\/([\w-]{11})/);
+    const album = src.match(/open\.spotify\.com\/embed\/album\/(\w+)/);
+    if (yt) {
+      works.push({
+        '@type': 'VideoObject', name, description: description || name, uploadDate: date,
+        thumbnailUrl: `https://i.ytimg.com/vi/${yt[1]}/hqdefault.jpg`,
+        embedUrl: `https://www.youtube.com/embed/${yt[1]}`,
+        url: `https://www.youtube.com/watch?v=${yt[1]}`, creator: me,
+      });
+    } else if (album) {
+      works.push({
+        '@type': 'MusicAlbum', name, description, datePublished: date,
+        url: `https://open.spotify.com/album/${album[1]}`, byArtist: me,
+      });
+    }
+  });
+  if (works.length) {
+    const data = document.createElement('script');
+    data.type = 'application/ld+json';
+    data.textContent = JSON.stringify({ '@context': 'https://schema.org', '@graph': works });
+    document.head.append(data);
+  }
+
   // Home page "Latest" cards: show the newest entry (first <li>) from each
   // section page, so adding an item to music.html etc. updates the home page.
   // The card's existing HTML is the fallback and is kept unless the fetched
