@@ -31,8 +31,14 @@ Keep the token private, like a password. Don't paste it anywhere else, don't tex
 ### Writing a post
 
 1. Open **Blog posts** and tap **New**. Fill in the title, check the date (today by default), add an optional one-line excerpt, and write the post. The editor has buttons for bold, italics, headings, links and pictures. Check **Poem** for a poem.
-2. To add a picture, use the picture button in the editor. Photos are shrunk and converted to a fast web format (WebP) automatically.
+2. To add a picture inside the text, use the picture button in the editor. Photos are shrunk and converted to a fast web format (WebP) automatically.
+   - **Cover image** (optional): one picture shown at the top of the post, and used as the preview when the post is shared on social media. Add a short description of it for screen readers.
+   - **Photos** (optional): tap **Add Photo** for each picture to attach below the post, each with an optional caption.
 3. Tap **Save**. The file is named and dated for you, and the post is live about a minute later.
+
+### Showing or hiding a page
+
+Open **Site settings → Show or hide pages** (in the backup editor, **Show or hide pages**). Switch a page off and tap **Save**. About a minute later it's gone from the menu, the footer, the home page and the Desktop view, and Google is asked not to list it. Anyone who already has the page's address can still open it. Switch it back on the same way. Photography is off until it has photos.
 
 **Drafts** works the same way, but nothing there is published. To publish a draft, copy its text into a new Blog post and delete the draft.
 

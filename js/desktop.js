@@ -46,7 +46,8 @@
     { id: 'film', title: 'Film', icon: 'film', src: 'film.html', pick: ['#film'], size: [680, 580], crumb: 'Videos ▸ Film' },
     { id: 'services', title: 'Services', icon: 'briefcase', src: 'services.html', pick: ['#services'], size: [560, 480], crumb: 'Documents ▸ Services' },
     { id: 'contact', title: 'Contact', icon: 'mail', src: 'contact.html', pick: ['#contact'], size: [460, 320], crumb: 'Contact' },
-    { id: 'photos', title: 'Photography', icon: 'camera', src: 'photography.html', pick: ['#photography'], size: [520, 320], crumb: 'Pictures ▸ Photography', hidden: true }, // hidden for now
+    // hidden: the starting state; pages.json (the admin's "Show or hide pages") has the final say.
+    { id: 'photos', title: 'Photography', icon: 'camera', src: 'photography.html', pick: ['#photography'], size: [520, 320], crumb: 'Pictures ▸ Photography', hidden: true },
     { id: 'site', title: 'About This Site', icon: 'note', template: 'desktop-site', size: [560, 440], crumb: 'Documents ▸ About This Site' },
     { id: 'now', title: 'Now.txt', icon: 'note', src: 'index.html', size: [420, 280], notepad: true },
     { id: 'classic', title: 'Classic Site', icon: 'book', href: 'index.html' },
@@ -302,8 +303,12 @@
 
   // ---- Desktop icons -------------------------------------------------------
   const iconList = $('#icons');
-  APPS.filter((app) => !app.hidden).forEach((app) => {
+  // Each app's icon and Start menu item, so pages.json can show or hide them.
+  const appEls = new Map(APPS.map((app) => [app.id, []]));
+  APPS.forEach((app) => {
     const li = document.createElement('li');
+    li.hidden = !!app.hidden;
+    appEls.get(app.id).push(li);
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'icon';
@@ -333,10 +338,12 @@
     b.innerHTML = `${ICONS[app.icon]}<span></span>`;
     $('span', b).textContent = app.title;
     b.addEventListener('click', () => openApp(app));
+    b.hidden = !!app.hidden;
+    appEls.get(app.id).push(b);
     return b;
   };
   const left = $('#sm-left');
-  ['about', 'site', 'now', 'music', 'film', 'writing', 'blog', 'services', 'contact'].forEach((id) => left.append(smItem(appById(id))));
+  ['about', 'site', 'now', 'music', 'film', 'photos', 'writing', 'blog', 'services', 'contact'].forEach((id) => left.append(smItem(appById(id))));
   left.append(Object.assign(document.createElement('hr'), { className: 'sm-sep' }), smItem(appById('classic')));
 
   const right = $('#sm-right');
@@ -354,6 +361,19 @@
   shut.href = 'index.html';
   shut.textContent = 'Classic view';
   right.append(shut);
+
+  // Show or hide pages from the admin (pages.json: true = shown, false = hidden).
+  fetch('pages.json', { cache: 'no-cache' })
+    .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
+    .then((shown) => {
+      APPS.forEach((app) => {
+        const key = app.src && !app.notepad && app.src.replace(/\.html$/, '');
+        if (typeof shown[key] !== 'boolean') return;
+        app.hidden = !shown[key];
+        appEls.get(app.id).forEach((el) => { el.hidden = app.hidden; });
+      });
+    })
+    .catch((err) => console.warn('[desktop]', 'Could not load pages.json', err));
 
   function closeStart() {
     if (menu.hidden) return;

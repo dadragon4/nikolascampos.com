@@ -8,6 +8,15 @@ All times are U.S. Eastern Time (EDT). Each time is when a change was saved, not
 
 ## Saturday, October 31, 2026
 
+### 9:20 PM — Services details, Instagram, page switches and blog photos
+
+- **Services:** new sections for editing services with prices (podcasts with audio and video, $75 for up to 1-hour episodes; audio-only podcasts, $50 for up to 1 hour; websites, price varies), plus the tools and equipment Niko uses.
+- **Instagram** (@nikofcampos) added to the Contact page, the footer on every page, and the site's info for Google.
+- **Phones:** the Desktop view button is gone from the top of the page. It's still in the footer site map. Nothing changed on computers.
+- **Show or hide pages from the admin:** a new "Show or hide pages" screen switches pages on and off. A hidden page leaves the menu, footer, home page and Desktop view, and Google is asked not to list it. Photography starts off hidden, as before.
+- **Search engines:** new Google descriptions for Services and Contact, more skills listed in the site's info for Google (video and podcast editing, web design, SEO, Premiere Pro, Ableton Live, OBS Studio), and the Services page now tells Google its services and prices.
+- **Blog photos:** posts can now have a cover image at the top (also used as the preview picture when the post is shared) and a set of photos with captions below the post, both added in the admin editors.
+
 ### 6:01 PM — Private notes stay private
 
 - **Behind the scenes:** the site's planning notes (drafts for the admin, the Cloudflare move, to-dos and ideas) no longer go to the public GitHub copy of the site. They stay on Niko's Mac. A new ignore list also keeps personal settings, passwords or keys, and build leftovers out of the public copy.

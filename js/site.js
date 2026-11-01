@@ -63,6 +63,35 @@
     });
   }
 
+  // Show or hide pages from the admin: pages.json (edited in the admin's
+  // "Show or hide pages" screen) lists each page as true (shown) or false
+  // (hidden). A hidden page's links are removed from the menu, the footer
+  // and the home page, and the page asks search engines not to list it.
+  // Its address still works for anyone who has the link. The links' "hidden"
+  // attributes in the HTML should match pages.json so nothing flashes on load.
+  const pagesFile = new URL('../pages.json', document.currentScript?.src || location.href);
+  fetch(pagesFile, { cache: 'no-cache' })
+    .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
+    .then((shown) => {
+      const keyOf = (href) => {
+        const m = new URL(href, location.href).pathname.match(/^\/([\w-]+)\.html$/);
+        return m && m[1];
+      };
+      document.querySelectorAll('nav.site a[href], .sitemap a[href]').forEach((a) => {
+        const key = keyOf(a.getAttribute('href'));
+        if (!key || typeof shown[key] !== 'boolean') return;
+        (a.closest('li') || a).hidden = !shown[key];
+      });
+      document.querySelectorAll('[data-latest]').forEach((card) => {
+        const key = keyOf(card.dataset.latest);
+        if (key && shown[key] === false) card.hidden = true;
+      });
+      if (shown[keyOf(location.href)] === false && !document.querySelector('meta[name="robots"]')) {
+        document.head.append(Object.assign(document.createElement('meta'), { name: 'robots', content: 'noindex' }));
+      }
+    })
+    .catch((err) => warn('Could not load pages.json; keeping links as they are', err));
+
   // Home page "Latest" cards: show the newest entry (first <li>) from each
   // section page, so adding an item to music.html etc. updates the home page.
   // The card's existing HTML is the fallback and is kept unless the fetched
