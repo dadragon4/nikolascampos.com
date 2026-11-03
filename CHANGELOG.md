@@ -8,6 +8,15 @@ All times are U.S. Eastern Time (EDT). Each time is when a change was saved, not
 
 ## Saturday, October 31, 2026
 
+### 10:05 PM — Better Google results
+
+- **Orlando:** the home page title is now "Writer, Filmmaker & Musician in Orlando", and the home, About, Services and Blog descriptions mention Orlando. Google's info about Niko now includes Orlando too.
+- **Services** has a clearer title for searches: "Podcast & Video Editing Services", and a shorter description that fits in Google results.
+- **Films and albums** now tell Google their names, dates and descriptions, so they can show up as videos and albums in search. New ones are picked up automatically.
+- **Blog posts** tell Google their title, date and cover image.
+- **Site icon:** a simple "N" icon now shows in browser tabs and next to the site in Google. It can be swapped for a logo or photo later.
+- The site's name is now listed for Google, and the Writing and Blog page descriptions are clearer.
+
 ### 9:20 PM — Services details, Instagram, page switches and blog photos
 
 - **Services:** new sections for editing services with prices (podcasts with audio and video, $75 for up to 1-hour episodes; audio-only podcasts, $50 for up to 1 hour; websites, price varies), plus the tools and equipment Niko uses.
